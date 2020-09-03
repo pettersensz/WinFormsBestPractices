@@ -45,6 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Episode.cs" />
+    <Compile Include="EpisodeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EpisodeView.Designer.cs">
+      <DependentUpon>EpisodeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,13 +64,25 @@
       <DependentUpon>NewPodcastForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Podcast.cs" />
+    <Compile Include="SubscriptionView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubscriptionView.Designer.cs">
+      <DependentUpon>SubscriptionView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EpisodeView.resx">
+      <DependentUpon>EpisodeView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewPodcastForm.resx">
       <DependentUpon>NewPodcastForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubscriptionView.resx">
+      <DependentUpon>SubscriptionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
