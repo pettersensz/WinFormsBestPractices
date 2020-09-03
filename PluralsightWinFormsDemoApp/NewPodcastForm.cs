@@ -18,7 +18,7 @@ namespace PluralsightWinFormsDemoApp
         }
         public string PodcastUrl { get { return textBoxFeedUrl.Text; } }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OnButtonOKClick(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
         }

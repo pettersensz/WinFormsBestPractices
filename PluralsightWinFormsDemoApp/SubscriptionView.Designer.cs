@@ -74,7 +74,7 @@
             this.listBoxPodcasts.Size = new System.Drawing.Size(203, 316);
             this.listBoxPodcasts.TabIndex = 3;
             // 
-            // PodcastView
+            // SubscriptionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,7 +82,7 @@
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.listBoxEpisodes);
             this.Controls.Add(this.listBoxPodcasts);
-            this.Name = "PodcastView";
+            this.Name = "SubscriptionView";
             this.Size = new System.Drawing.Size(450, 350);
             this.ResumeLayout(false);
 
@@ -90,9 +90,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button buttonRemove;
-        private System.Windows.Forms.Button buttonAdd;
-        private System.Windows.Forms.ListBox listBoxEpisodes;
-        private System.Windows.Forms.ListBox listBoxPodcasts;
+        internal System.Windows.Forms.Button buttonRemove;
+        internal System.Windows.Forms.Button buttonAdd;
+        internal System.Windows.Forms.ListBox listBoxEpisodes;
+        internal System.Windows.Forms.ListBox listBoxPodcasts;
     }
 }

@@ -179,16 +179,16 @@
 
         #endregion
 
-        private System.Windows.Forms.Label labelEpisodeDescription;
-        private System.Windows.Forms.Label labelPublicationDate;
-        private System.Windows.Forms.Label labelEpisodeTitle;
-        private System.Windows.Forms.CheckBox checkBoxIsFavorite;
-        private System.Windows.Forms.NumericUpDown numericUpDownRating;
-        private System.Windows.Forms.Label labelMyNotes;
-        private System.Windows.Forms.Label labelMyRating;
-        private System.Windows.Forms.Label labelMyTags;
-        private System.Windows.Forms.TextBox textBoxNotes;
-        private System.Windows.Forms.TextBox textBoxTags;
-        private System.Windows.Forms.Button buttonPlay;
+        internal System.Windows.Forms.Label labelEpisodeDescription;
+        internal System.Windows.Forms.Label labelPublicationDate;
+        internal System.Windows.Forms.Label labelEpisodeTitle;
+        internal System.Windows.Forms.CheckBox checkBoxIsFavorite;
+        internal System.Windows.Forms.NumericUpDown numericUpDownRating;
+        internal System.Windows.Forms.Label labelMyNotes;
+        internal System.Windows.Forms.Label labelMyRating;
+        internal System.Windows.Forms.Label labelMyTags;
+        internal System.Windows.Forms.TextBox textBoxNotes;
+        internal System.Windows.Forms.TextBox textBoxTags;
+        internal System.Windows.Forms.Button buttonPlay;
     }
 }
