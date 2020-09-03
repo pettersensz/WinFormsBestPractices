@@ -30,9 +30,7 @@ namespace PluralsightWinFormsDemoApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelEpisodeDescription = new System.Windows.Forms.Label();
-            this.labelPublicationDate = new System.Windows.Forms.Label();
-            this.labelEpisodeTitle = new System.Windows.Forms.Label();
+            this.bottomPanel = new System.Windows.Forms.Panel();
             this.checkBoxIsFavorite = new System.Windows.Forms.CheckBox();
             this.numericUpDownRating = new System.Windows.Forms.NumericUpDown();
             this.labelMyNotes = new System.Windows.Forms.Label();
@@ -41,55 +39,44 @@ namespace PluralsightWinFormsDemoApp
             this.textBoxNotes = new System.Windows.Forms.TextBox();
             this.textBoxTags = new System.Windows.Forms.TextBox();
             this.buttonPlay = new System.Windows.Forms.Button();
+            this.topFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.labelEpisodeTitle = new System.Windows.Forms.Label();
+            this.labelPublicationDate = new System.Windows.Forms.Label();
+            this.labelEpisodeDescription = new System.Windows.Forms.Label();
+            this.bottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).BeginInit();
+            this.topFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // labelEpisodeDescription
+            // bottomPanel
             // 
-            this.labelEpisodeDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelEpisodeDescription.Location = new System.Drawing.Point(7, 55);
-            this.labelEpisodeDescription.Name = "labelEpisodeDescription";
-            this.labelEpisodeDescription.Size = new System.Drawing.Size(1193, 51);
-            this.labelEpisodeDescription.TabIndex = 23;
-            this.labelEpisodeDescription.Text = "{{IN CODE}}";
-            // 
-            // labelPublicationDate
-            // 
-            this.labelPublicationDate.AutoSize = true;
-            this.labelPublicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPublicationDate.Location = new System.Drawing.Point(7, 38);
-            this.labelPublicationDate.Name = "labelPublicationDate";
-            this.labelPublicationDate.Size = new System.Drawing.Size(67, 13);
-            this.labelPublicationDate.TabIndex = 22;
-            this.labelPublicationDate.Text = "{{IN CODE}}";
-            // 
-            // labelEpisodeTitle
-            // 
-            this.labelEpisodeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelEpisodeTitle.AutoEllipsis = true;
-            this.labelEpisodeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEpisodeTitle.ForeColor = System.Drawing.Color.DarkGray;
-            this.labelEpisodeTitle.Location = new System.Drawing.Point(7, 7);
-            this.labelEpisodeTitle.Name = "labelEpisodeTitle";
-            this.labelEpisodeTitle.Size = new System.Drawing.Size(1193, 25);
-            this.labelEpisodeTitle.TabIndex = 21;
-            this.labelEpisodeTitle.Text = "{{IN CODE}}";
+            this.bottomPanel.Controls.Add(this.checkBoxIsFavorite);
+            this.bottomPanel.Controls.Add(this.numericUpDownRating);
+            this.bottomPanel.Controls.Add(this.labelMyNotes);
+            this.bottomPanel.Controls.Add(this.labelMyRating);
+            this.bottomPanel.Controls.Add(this.labelMyTags);
+            this.bottomPanel.Controls.Add(this.textBoxNotes);
+            this.bottomPanel.Controls.Add(this.textBoxTags);
+            this.bottomPanel.Controls.Add(this.buttonPlay);
+            this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bottomPanel.Location = new System.Drawing.Point(0, 51);
+            this.bottomPanel.Name = "bottomPanel";
+            this.bottomPanel.Size = new System.Drawing.Size(1203, 528);
+            this.bottomPanel.TabIndex = 24;
             // 
             // checkBoxIsFavorite
             // 
             this.checkBoxIsFavorite.AutoSize = true;
-            this.checkBoxIsFavorite.Location = new System.Drawing.Point(125, 167);
+            this.checkBoxIsFavorite.Location = new System.Drawing.Point(120, 63);
             this.checkBoxIsFavorite.Name = "checkBoxIsFavorite";
             this.checkBoxIsFavorite.Size = new System.Drawing.Size(64, 17);
-            this.checkBoxIsFavorite.TabIndex = 20;
+            this.checkBoxIsFavorite.TabIndex = 28;
             this.checkBoxIsFavorite.Text = "Favorite";
             this.checkBoxIsFavorite.UseVisualStyleBackColor = true;
             // 
             // numericUpDownRating
             // 
-            this.numericUpDownRating.Location = new System.Drawing.Point(125, 140);
+            this.numericUpDownRating.Location = new System.Drawing.Point(120, 36);
             this.numericUpDownRating.Maximum = new decimal(new int[] {
             5,
             0,
@@ -97,33 +84,33 @@ namespace PluralsightWinFormsDemoApp
             0});
             this.numericUpDownRating.Name = "numericUpDownRating";
             this.numericUpDownRating.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownRating.TabIndex = 19;
+            this.numericUpDownRating.TabIndex = 27;
             // 
             // labelMyNotes
             // 
             this.labelMyNotes.AutoSize = true;
-            this.labelMyNotes.Location = new System.Drawing.Point(7, 185);
+            this.labelMyNotes.Location = new System.Drawing.Point(2, 81);
             this.labelMyNotes.Name = "labelMyNotes";
             this.labelMyNotes.Size = new System.Drawing.Size(55, 13);
-            this.labelMyNotes.TabIndex = 16;
+            this.labelMyNotes.TabIndex = 24;
             this.labelMyNotes.Text = "My Notes:";
             // 
             // labelMyRating
             // 
             this.labelMyRating.AutoSize = true;
-            this.labelMyRating.Location = new System.Drawing.Point(7, 142);
+            this.labelMyRating.Location = new System.Drawing.Point(2, 38);
             this.labelMyRating.Name = "labelMyRating";
             this.labelMyRating.Size = new System.Drawing.Size(58, 13);
-            this.labelMyRating.TabIndex = 17;
+            this.labelMyRating.TabIndex = 25;
             this.labelMyRating.Text = "My Rating:";
             // 
             // labelMyTags
             // 
             this.labelMyTags.AutoSize = true;
-            this.labelMyTags.Location = new System.Drawing.Point(7, 113);
+            this.labelMyTags.Location = new System.Drawing.Point(2, 9);
             this.labelMyTags.Name = "labelMyTags";
             this.labelMyTags.Size = new System.Drawing.Size(51, 13);
-            this.labelMyTags.TabIndex = 18;
+            this.labelMyTags.TabIndex = 26;
             this.labelMyTags.Text = "My Tags:";
             // 
             // textBoxNotes
@@ -131,49 +118,88 @@ namespace PluralsightWinFormsDemoApp
             this.textBoxNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNotes.Location = new System.Drawing.Point(7, 204);
+            this.textBoxNotes.Location = new System.Drawing.Point(1, 97);
             this.textBoxNotes.Multiline = true;
             this.textBoxNotes.Name = "textBoxNotes";
-            this.textBoxNotes.Size = new System.Drawing.Size(1193, 343);
-            this.textBoxNotes.TabIndex = 15;
+            this.textBoxNotes.Size = new System.Drawing.Size(1199, 399);
+            this.textBoxNotes.TabIndex = 23;
             // 
             // textBoxTags
             // 
             this.textBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTags.Location = new System.Drawing.Point(125, 113);
+            this.textBoxTags.Location = new System.Drawing.Point(120, 9);
             this.textBoxTags.Name = "textBoxTags";
-            this.textBoxTags.Size = new System.Drawing.Size(1075, 20);
-            this.textBoxTags.TabIndex = 14;
+            this.textBoxTags.Size = new System.Drawing.Size(1081, 20);
+            this.textBoxTags.TabIndex = 22;
             // 
             // buttonPlay
             // 
             this.buttonPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonPlay.Location = new System.Drawing.Point(7, 553);
+            this.buttonPlay.Location = new System.Drawing.Point(0, 502);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(75, 23);
-            this.buttonPlay.TabIndex = 13;
+            this.buttonPlay.TabIndex = 21;
             this.buttonPlay.Text = "Play";
             this.buttonPlay.UseVisualStyleBackColor = true;
+            // 
+            // topFlowLayoutPanel
+            // 
+            this.topFlowLayoutPanel.AutoSize = true;
+            this.topFlowLayoutPanel.Controls.Add(this.labelEpisodeTitle);
+            this.topFlowLayoutPanel.Controls.Add(this.labelPublicationDate);
+            this.topFlowLayoutPanel.Controls.Add(this.labelEpisodeDescription);
+            this.topFlowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.topFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.topFlowLayoutPanel.Name = "topFlowLayoutPanel";
+            this.topFlowLayoutPanel.Size = new System.Drawing.Size(1203, 51);
+            this.topFlowLayoutPanel.TabIndex = 25;
+            this.topFlowLayoutPanel.WrapContents = false;
+            // 
+            // labelEpisodeTitle
+            // 
+            this.labelEpisodeTitle.AutoSize = true;
+            this.labelEpisodeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEpisodeTitle.ForeColor = System.Drawing.Color.DarkGray;
+            this.labelEpisodeTitle.Location = new System.Drawing.Point(3, 0);
+            this.labelEpisodeTitle.Name = "labelEpisodeTitle";
+            this.labelEpisodeTitle.Size = new System.Drawing.Size(126, 25);
+            this.labelEpisodeTitle.TabIndex = 22;
+            this.labelEpisodeTitle.Text = "{{IN CODE}}";
+            // 
+            // labelPublicationDate
+            // 
+            this.labelPublicationDate.AutoSize = true;
+            this.labelPublicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPublicationDate.Location = new System.Drawing.Point(3, 25);
+            this.labelPublicationDate.Name = "labelPublicationDate";
+            this.labelPublicationDate.Size = new System.Drawing.Size(67, 13);
+            this.labelPublicationDate.TabIndex = 23;
+            this.labelPublicationDate.Text = "{{IN CODE}}";
+            // 
+            // labelEpisodeDescription
+            // 
+            this.labelEpisodeDescription.AutoSize = true;
+            this.labelEpisodeDescription.Location = new System.Drawing.Point(3, 38);
+            this.labelEpisodeDescription.Name = "labelEpisodeDescription";
+            this.labelEpisodeDescription.Size = new System.Drawing.Size(67, 13);
+            this.labelEpisodeDescription.TabIndex = 24;
+            this.labelEpisodeDescription.Text = "{{IN CODE}}";
             // 
             // EpisodeView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.labelEpisodeDescription);
-            this.Controls.Add(this.labelPublicationDate);
-            this.Controls.Add(this.labelEpisodeTitle);
-            this.Controls.Add(this.checkBoxIsFavorite);
-            this.Controls.Add(this.numericUpDownRating);
-            this.Controls.Add(this.labelMyNotes);
-            this.Controls.Add(this.labelMyRating);
-            this.Controls.Add(this.labelMyTags);
-            this.Controls.Add(this.textBoxNotes);
-            this.Controls.Add(this.textBoxTags);
-            this.Controls.Add(this.buttonPlay);
+            this.Controls.Add(this.bottomPanel);
+            this.Controls.Add(this.topFlowLayoutPanel);
             this.Name = "EpisodeView";
             this.Size = new System.Drawing.Size(1203, 579);
+            this.bottomPanel.ResumeLayout(false);
+            this.bottomPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).EndInit();
+            this.topFlowLayoutPanel.ResumeLayout(false);
+            this.topFlowLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,16 +207,18 @@ namespace PluralsightWinFormsDemoApp
 
         #endregion
 
-        internal System.Windows.Forms.Label labelEpisodeDescription;
-        internal System.Windows.Forms.Label labelPublicationDate;
-        internal System.Windows.Forms.Label labelEpisodeTitle;
-        internal System.Windows.Forms.CheckBox checkBoxIsFavorite;
-        internal System.Windows.Forms.NumericUpDown numericUpDownRating;
-        internal System.Windows.Forms.Label labelMyNotes;
-        internal System.Windows.Forms.Label labelMyRating;
-        internal System.Windows.Forms.Label labelMyTags;
-        internal System.Windows.Forms.TextBox textBoxNotes;
-        internal System.Windows.Forms.TextBox textBoxTags;
-        internal System.Windows.Forms.Button buttonPlay;
+        private Panel bottomPanel;
+        internal CheckBox checkBoxIsFavorite;
+        internal NumericUpDown numericUpDownRating;
+        internal Label labelMyNotes;
+        internal Label labelMyRating;
+        internal Label labelMyTags;
+        internal TextBox textBoxNotes;
+        internal TextBox textBoxTags;
+        internal Button buttonPlay;
+        private FlowLayoutPanel topFlowLayoutPanel;
+        internal Label labelEpisodeTitle;
+        internal Label labelPublicationDate;
+        internal Label labelEpisodeDescription;
     }
 }
