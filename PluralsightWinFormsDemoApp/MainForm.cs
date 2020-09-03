@@ -48,6 +48,16 @@ namespace PluralsightWinFormsDemoApp
             if (!SystemInformation.HighContrast) BackColor = Color.White;
         }
 
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Space | Keys.Control))
+            {
+                _episodeView.buttonPlay.PerformClick();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
         private void OnMainFormLoad(object sender, EventArgs e)
         {
             List<Podcast> podcasts;
