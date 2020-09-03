@@ -1,4 +1,6 @@
-﻿namespace PluralsightWinFormsDemoApp
+﻿using System.Windows.Forms;
+
+namespace PluralsightWinFormsDemoApp
 {
     partial class EpisodeView
     {
@@ -28,6 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+
+            this.Dock = DockStyle.Fill;
             this.labelEpisodeDescription = new System.Windows.Forms.Label();
             this.labelPublicationDate = new System.Windows.Forms.Label();
             this.labelEpisodeTitle = new System.Windows.Forms.Label();

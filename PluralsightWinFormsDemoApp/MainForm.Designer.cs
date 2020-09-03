@@ -39,8 +39,10 @@
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Size = new System.Drawing.Size(785, 381);
-            this.splitContainer1.SplitterDistance = 261;
+            this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.Panel1.Controls.Add(_subscriptionView);
+            this.splitContainer1.Panel2.Controls.Add(_episodeView);
             // 
             // MainForm
             // 

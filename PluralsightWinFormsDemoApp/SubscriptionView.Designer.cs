@@ -1,4 +1,6 @@
-﻿namespace PluralsightWinFormsDemoApp
+﻿using System.Windows.Forms;
+
+namespace PluralsightWinFormsDemoApp
 {
     partial class SubscriptionView
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.Dock = DockStyle.Fill;
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.listBoxEpisodes = new System.Windows.Forms.ListBox();
