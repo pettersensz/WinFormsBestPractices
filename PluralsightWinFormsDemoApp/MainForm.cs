@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -43,9 +44,8 @@ namespace PluralsightWinFormsDemoApp
             };
 
             splitContainer1.Panel1.Controls.Add(_subscriptionView);
-            splitContainer1.Panel2.Controls.Add(_episodeView);
 
-
+            if (!SystemInformation.HighContrast) BackColor = Color.White;
         }
 
         private void OnMainFormLoad(object sender, EventArgs e)
