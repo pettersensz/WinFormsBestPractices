@@ -64,6 +64,12 @@
       <DependentUpon>NewPodcastForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Podcast.cs" />
+    <Compile Include="PodcastView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PodcastView.Designer.cs">
+      <DependentUpon>PodcastView.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubscriptionView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewPodcastForm.resx">
       <DependentUpon>NewPodcastForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PodcastView.resx">
+      <DependentUpon>PodcastView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubscriptionView.resx">
       <DependentUpon>SubscriptionView.cs</DependentUpon>
