@@ -117,6 +117,429 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="labelMyRating.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelPublicationDate.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelMyNotes.Text" xml:space="preserve">
+    <value>My &amp;Notes:</value>
+  </data>
+  <data name="&gt;&gt;labelMyTags.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="labelEpisodeDescription.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>10000, 150</value>
+  </data>
+  <data name="textBoxNotes.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelPublicationDate.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 8.25pt, style=Italic</value>
+  </data>
+  <data name="labelPublicationDate.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="&gt;&gt;textBoxNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelMyNotes.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="topFlowLayoutPanel.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="bottomPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 51</value>
+  </data>
+  <data name="&gt;&gt;textBoxTags.Name" xml:space="preserve">
+    <value>textBoxTags</value>
+  </data>
+  <data name="checkBoxIsFavorite.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelMyTags.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 9</value>
+  </data>
+  <data name="labelMyNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 81</value>
+  </data>
+  <data name="&gt;&gt;labelEpisodeDescription.Name" xml:space="preserve">
+    <value>labelEpisodeDescription</value>
+  </data>
+  <data name="topFlowLayoutPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="bottomPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelEpisodeTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>126, 25</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>EpisodeView</value>
+  </data>
+  <data name="&gt;&gt;labelMyTags.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="buttonPlay.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="bottomPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 447</value>
+  </data>
+  <data name="textBoxNotes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIsFavorite.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelMyRating.Location" type="System.Drawing.Point, System.Drawing">
+    <value>2, 38</value>
+  </data>
+  <data name="&gt;&gt;labelMyRating.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="&gt;&gt;textBoxNotes.Name" xml:space="preserve">
+    <value>textBoxNotes</value>
+  </data>
+  <data name="topFlowLayoutPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;labelMyNotes.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;labelMyTags.Name" xml:space="preserve">
+    <value>labelMyTags</value>
+  </data>
+  <data name="buttonPlay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 421</value>
+  </data>
+  <data name="&gt;&gt;buttonPlay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelMyTags.Text" xml:space="preserve">
+    <value>My &amp;Tags:</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="&gt;&gt;textBoxTags.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numericUpDownRating.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 36</value>
+  </data>
+  <data name="&gt;&gt;labelPublicationDate.Parent" xml:space="preserve">
+    <value>topFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;labelPublicationDate.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;bottomPanel.Name" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="labelMyNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 13</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownRating.Type" xml:space="preserve">
+    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelEpisodeTitle.Name" xml:space="preserve">
+    <value>labelEpisodeTitle</value>
+  </data>
+  <data name="labelEpisodeTitle.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 0</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIsFavorite.Name" xml:space="preserve">
+    <value>checkBoxIsFavorite</value>
+  </data>
+  <data name="labelPublicationDate.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 25</value>
+  </data>
+  <data name="checkBoxIsFavorite.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;bottomPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelEpisodeDescription.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelEpisodeTitle.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="numericUpDownRating.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="numericUpDownRating.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="labelPublicationDate.Text" xml:space="preserve">
+    <value>{{IN CODE}}</value>
+  </data>
+  <data name="topFlowLayoutPanel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelMyTags.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 13</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIsFavorite.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="&gt;&gt;bottomPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="labelEpisodeDescription.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 38</value>
+  </data>
+  <data name="&gt;&gt;labelEpisodeDescription.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="labelEpisodeDescription.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;textBoxTags.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="labelMyRating.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;labelEpisodeTitle.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxIsFavorite.Size" type="System.Drawing.Size, System.Drawing">
+    <value>64, 17</value>
+  </data>
+  <data name="&gt;&gt;labelMyNotes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkBoxIsFavorite.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 63</value>
+  </data>
+  <data name="&gt;&gt;buttonPlay.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="topFlowLayoutPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 51</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;labelEpisodeTitle.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelMyRating.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="topFlowLayoutPanel.WrapContents" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="labelEpisodeTitle.Text" xml:space="preserve">
+    <value>{{IN CODE}}</value>
+  </data>
+  <data name="&gt;&gt;labelEpisodeTitle.Parent" xml:space="preserve">
+    <value>topFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;labelPublicationDate.Name" xml:space="preserve">
+    <value>labelPublicationDate</value>
+  </data>
+  <data name="labelEpisodeDescription.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 13</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="numericUpDownRating.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="&gt;&gt;labelEpisodeDescription.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="labelPublicationDate.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textBoxNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;labelMyRating.Name" xml:space="preserve">
+    <value>labelMyRating</value>
+  </data>
+  <data name="labelMyRating.Text" xml:space="preserve">
+    <value>My &amp;Rating:</value>
+  </data>
+  <data name="&gt;&gt;topFlowLayoutPanel.Name" xml:space="preserve">
+    <value>topFlowLayoutPanel</value>
+  </data>
+  <data name="labelPublicationDate.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;textBoxTags.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="buttonPlay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="&gt;&gt;labelEpisodeDescription.Parent" xml:space="preserve">
+    <value>topFlowLayoutPanel</value>
+  </data>
+  <data name="&gt;&gt;labelMyNotes.Name" xml:space="preserve">
+    <value>labelMyNotes</value>
+  </data>
+  <data name="labelEpisodeTitle.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkBoxIsFavorite.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;labelMyTags.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="buttonPlay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="&gt;&gt;buttonPlay.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="textBoxNotes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>920, 318</value>
+  </data>
+  <data name="&gt;&gt;toolTipEpisodeView.Name" xml:space="preserve">
+    <value>toolTipEpisodeView</value>
+  </data>
+  <data name="labelMyRating.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;textBoxNotes.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="textBoxTags.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="labelEpisodeDescription.Text" xml:space="preserve">
+    <value>{{IN CODE}}</value>
+  </data>
+  <data name="labelEpisodeTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 15.75pt</value>
+  </data>
+  <data name="labelMyNotes.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelMyTags.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="labelMyNotes.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>924, 498</value>
+  </data>
+  <data name="labelMyTags.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="checkBoxIsFavorite.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;labelPublicationDate.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="topFlowLayoutPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="bottomPanel.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelMyRating.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="labelEpisodeDescription.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="labelMyTags.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="bottomPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;buttonPlay.Name" xml:space="preserve">
+    <value>buttonPlay</value>
+  </data>
+  <data name="textBoxTags.Size" type="System.Drawing.Size, System.Drawing">
+    <value>802, 20</value>
+  </data>
+  <data name="&gt;&gt;toolTipEpisodeView.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="textBoxTags.Location" type="System.Drawing.Point, System.Drawing">
+    <value>120, 9</value>
+  </data>
+  <data name="topFlowLayoutPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="textBoxTags.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="textBoxTags.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="labelEpisodeTitle.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textBoxNotes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 97</value>
+  </data>
+  <data name="buttonPlay.Text" xml:space="preserve">
+    <value>&amp;Play</value>
+  </data>
+  <data name="buttonPlay.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="checkBoxIsFavorite.Text" xml:space="preserve">
+    <value>&amp;Favorite</value>
+  </data>
+  <data name="textBoxNotes.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.UserControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelMyNotes.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownRating.Parent" xml:space="preserve">
+    <value>bottomPanel</value>
+  </data>
+  <data name="&gt;&gt;bottomPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;textBoxNotes.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;labelMyRating.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownRating.Name" xml:space="preserve">
+    <value>numericUpDownRating</value>
+  </data>
+  <data name="&gt;&gt;numericUpDownRating.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>fr</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="toolTipEpisodeView.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
