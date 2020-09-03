@@ -1,9 +1,11 @@
-﻿using System;
+﻿using PluralsightWinFormsDemoApp.Properties;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.Policy;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
@@ -89,6 +91,13 @@ namespace PluralsightWinFormsDemoApp
             }
 
             SelectFirstEpisode();
+
+            if(Settings.Default.FirstRun)
+            {
+                MessageBox.Show("Welcome! Get started by clicking Add to subscribe to a new podcast.");
+                Settings.Default.FirstRun = false;
+                Settings.Default.Save();
+            }
         }
 
         private void SelectFirstEpisode()
