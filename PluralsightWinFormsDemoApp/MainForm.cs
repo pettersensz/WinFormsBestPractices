@@ -11,7 +11,7 @@ namespace PluralsightWinFormsDemoApp
 {
     public partial class MainForm : Form
     {
-        private Episode currentEpisode;
+        private Episode _currentEpisode;
 
         public MainForm()
         {
@@ -57,8 +57,8 @@ namespace PluralsightWinFormsDemoApp
             var doc = new XmlDocument();
             doc.Load(podcast.SubscriptionUrl);
 
-            XmlElement channel = doc["rss"]["channel"];
-            XmlNodeList items = channel.GetElementsByTagName("item");
+            var channel = doc["rss"]["channel"];
+            var items = channel.GetElementsByTagName("item");
             podcast.Title = channel["title"].InnerText;
             podcast.Link = channel["link"].InnerText;
             podcast.Description = channel["description"].InnerText;
@@ -67,19 +67,21 @@ namespace PluralsightWinFormsDemoApp
             {
                 var guid = item["guid"].InnerText;
                 var episode = podcast.Episodes.FirstOrDefault(e => e.Guid == guid);
-                if (episode == null)
+                if (episode != null) continue;
+                episode = new Episode
                 {
-                    episode = new Episode() { Guid = guid, IsNew = true};
-                    episode.Title = item["title"].InnerText;
-                    episode.PubDate = item["pubDate"].InnerText;
-                    var xmlElement = item["description"];
-                    if (xmlElement != null) episode.Description = xmlElement.InnerText;
-                    var element = item["link"];
-                    if (element != null) episode.Link = element.InnerText;
-                    var enclosureElement = item["enclosure"];
-                    if (enclosureElement != null) episode.AudioFile = enclosureElement.Attributes["url"].InnerText;
-                    podcast.Episodes.Add(episode);
-                }
+                    Guid = guid,
+                    IsNew = true,
+                    Title = item["title"].InnerText,
+                    PubDate = item["pubDate"].InnerText
+                };
+                var xmlElement = item["description"];
+                if (xmlElement != null) episode.Description = xmlElement.InnerText;
+                var element = item["link"];
+                if (element != null) episode.Link = element.InnerText;
+                var enclosureElement = item["enclosure"];
+                if (enclosureElement != null) episode.AudioFile = enclosureElement.Attributes["url"].InnerText;
+                podcast.Episodes.Add(episode);
             }
         }
 
@@ -93,30 +95,30 @@ namespace PluralsightWinFormsDemoApp
         private void OnSelectedEpisodeChanged(object sender, EventArgs e)
         {
             SaveEpisode();
-            currentEpisode = (Episode)listBoxEpisodes.SelectedItem;
-            textBoxEpisodeTitle.Text = currentEpisode.Title;
-            textBoxPublicationDate.Text = currentEpisode.PubDate;
-            textBoxDescription.Text = currentEpisode.Description;
-            checkBoxIsFavorite.Checked = currentEpisode.IsFavourite;
-            currentEpisode.IsNew = false;
-            numericUpDownRating.Value = currentEpisode.Rating;
-            textBoxTags.Text = String.Join(",", currentEpisode.Tags ?? new string[0]);
-            textBoxNotes.Text = currentEpisode.Notes ?? "";
+            _currentEpisode = (Episode)listBoxEpisodes.SelectedItem;
+            textBoxEpisodeTitle.Text = _currentEpisode.Title;
+            textBoxPublicationDate.Text = _currentEpisode.PubDate;
+            textBoxDescription.Text = _currentEpisode.Description;
+            checkBoxIsFavorite.Checked = _currentEpisode.IsFavourite;
+            _currentEpisode.IsNew = false;
+            numericUpDownRating.Value = _currentEpisode.Rating;
+            textBoxTags.Text = string.Join(",", _currentEpisode.Tags ?? new string[0]);
+            textBoxNotes.Text = _currentEpisode.Notes ?? "";
         }
 
         private void SaveEpisode()
         {
-            if (currentEpisode == null) return;
+            if (_currentEpisode == null) return;
 
-            currentEpisode.Tags = textBoxTags.Text.Split(new[] { ',' }).Select(s => s.Trim()).ToArray();
-            currentEpisode.Rating = (int)numericUpDownRating.Value;
-            currentEpisode.IsFavourite = checkBoxIsFavorite.Checked;
-            currentEpisode.Notes = textBoxNotes.Text;
+            _currentEpisode.Tags = textBoxTags.Text.Split(new[] { ',' }).Select(s => s.Trim()).ToArray();
+            _currentEpisode.Rating = (int)numericUpDownRating.Value;
+            _currentEpisode.IsFavourite = checkBoxIsFavorite.Checked;
+            _currentEpisode.Notes = textBoxNotes.Text;
         }
 
         private void OnButtonPlayClick(object sender, EventArgs e)
         {
-            Process.Start(currentEpisode.AudioFile ?? currentEpisode.Link);
+            Process.Start(_currentEpisode.AudioFile ?? _currentEpisode.Link);
         }
 
         private void OnButtonRemoveClick(object sender, EventArgs e)
@@ -128,13 +130,11 @@ namespace PluralsightWinFormsDemoApp
         private void OnButtonAddClick(object sender, EventArgs e)
         {
             var form = new NewPodcastForm();
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                var pod = new Podcast() {SubscriptionUrl = form.PodcastUrl };
-                UpdatePodcast(pod);
-                var index = listBoxPodcasts.Items.Add(pod.Title);
-                listBoxPodcasts.SelectedIndex = index;
-            }
+            if (form.ShowDialog() != DialogResult.OK) return;
+            var pod = new Podcast() {SubscriptionUrl = form.PodcastUrl };
+            UpdatePodcast(pod);
+            var index = listBoxPodcasts.Items.Add(pod.Title);
+            listBoxPodcasts.SelectedIndex = index;
         }
 
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
