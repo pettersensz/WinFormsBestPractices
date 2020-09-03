@@ -9,17 +9,17 @@ using System.Xml.Serialization;
 
 namespace PluralsightWinFormsDemoApp
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private Episode currentEpisode;
         private List<Podcast> podcasts;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void OnMainFormLoad(object sender, EventArgs e)
         {
             if (File.Exists("subscriptions.xml"))
             {
@@ -45,7 +45,7 @@ namespace PluralsightWinFormsDemoApp
             foreach (var pod in podcasts)
             {
                 UpdatePodcast(pod);
-                listBox1.Items.Add(pod.Title);
+                listBoxPodcasts.Items.Add(pod.Title);
             }
         }
 
@@ -80,53 +80,53 @@ namespace PluralsightWinFormsDemoApp
             }
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnSelectedPodcastChanged(object sender, EventArgs e)
         {
-            listBox2.Items.Clear();
-            if (listBox1.SelectedIndex == -1) return;
-            var pod = podcasts[listBox1.SelectedIndex];
+            listBoxEpisodes.Items.Clear();
+            if (listBoxPodcasts.SelectedIndex == -1) return;
+            var pod = podcasts[listBoxPodcasts.SelectedIndex];
             foreach (var episode in pod.Episodes)
             {
-                listBox2.Items.Add(episode.Title);
+                listBoxEpisodes.Items.Add(episode.Title);
             }
         }
 
-        private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void OnSelectedEpisodeChanged(object sender, EventArgs e)
         {
             SaveEpisode();
-            currentEpisode = podcasts[listBox1.SelectedIndex].Episodes[listBox2.SelectedIndex];
-            textBox1.Text = currentEpisode.Title;
-            textBox2.Text = currentEpisode.PubDate;
-            textBox3.Text = currentEpisode.Description;
-            checkBox1.Checked = currentEpisode.IsFavourite;
+            currentEpisode = podcasts[listBoxPodcasts.SelectedIndex].Episodes[listBoxEpisodes.SelectedIndex];
+            textBoxEpisodeTitle.Text = currentEpisode.Title;
+            textBoxPublicationDate.Text = currentEpisode.PubDate;
+            textBoxDescription.Text = currentEpisode.Description;
+            checkBoxIsFavorite.Checked = currentEpisode.IsFavourite;
             currentEpisode.IsNew = false;
-            numericUpDown1.Value = currentEpisode.Rating;
-            textBox4.Text = String.Join(",", currentEpisode.Tags ?? new string[0]);
-            textBox6.Text = currentEpisode.Notes ?? "";
+            numericUpDownRating.Value = currentEpisode.Rating;
+            textBoxTags.Text = String.Join(",", currentEpisode.Tags ?? new string[0]);
+            textBoxNotes.Text = currentEpisode.Notes ?? "";
         }
 
         private void SaveEpisode()
         {
             if (currentEpisode == null) return;
 
-            currentEpisode.Tags = textBox4.Text.Split(new[] { ',' }).Select(s => s.Trim()).ToArray();
-            currentEpisode.Rating = (int)numericUpDown1.Value;
-            currentEpisode.IsFavourite = checkBox1.Checked;
-            currentEpisode.Notes = textBox6.Text;
+            currentEpisode.Tags = textBoxTags.Text.Split(new[] { ',' }).Select(s => s.Trim()).ToArray();
+            currentEpisode.Rating = (int)numericUpDownRating.Value;
+            currentEpisode.IsFavourite = checkBoxIsFavorite.Checked;
+            currentEpisode.Notes = textBoxNotes.Text;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void OnButtonPlayClick(object sender, EventArgs e)
         {
             Process.Start(currentEpisode.AudioFile ?? currentEpisode.Link);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void OnButtonRemoveClick(object sender, EventArgs e)
         {
-            listBox1.Items.Remove(listBox1.SelectedItem);
-            listBox1.SelectedIndex = 0;
+            listBoxPodcasts.Items.Remove(listBoxPodcasts.SelectedItem);
+            listBoxPodcasts.SelectedIndex = 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void OnButtonAddClick(object sender, EventArgs e)
         {
             var form = new NewPodcastForm();
             if (form.ShowDialog() == DialogResult.OK)
@@ -134,12 +134,12 @@ namespace PluralsightWinFormsDemoApp
                 var pod = new Podcast() {SubscriptionUrl = form.PodcastUrl };
                 UpdatePodcast(pod);
                 podcasts.Add(pod);
-                var index = listBox1.Items.Add(pod.Title);
-                listBox1.SelectedIndex = index;
+                var index = listBoxPodcasts.Items.Add(pod.Title);
+                listBoxPodcasts.SelectedIndex = index;
             }
         }
 
-        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        private void OnMainFormClosed(object sender, FormClosedEventArgs e)
         {
             SaveEpisode();
             var serializer = new XmlSerializer(podcasts.GetType());
