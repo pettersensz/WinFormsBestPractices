@@ -16,7 +16,7 @@ namespace PluralsightWinFormsDemoApp
         {
             InitializeComponent();
         }
-        public string PodcastUrl { get { return textBox1.Text; } }
+        public string PodcastUrl { get { return textBoxFeedUrl.Text; } }
 
         private void button1_Click(object sender, EventArgs e)
         {

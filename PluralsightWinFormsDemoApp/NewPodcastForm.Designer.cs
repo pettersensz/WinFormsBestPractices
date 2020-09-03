@@ -28,46 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.buttonOK = new System.Windows.Forms.Button();
+            this.textBoxFeedUrl = new System.Windows.Forms.TextBox();
+            this.labelFeedURL = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonOK
             // 
-            this.button1.Location = new System.Drawing.Point(197, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonOK.Location = new System.Drawing.Point(197, 63);
+            this.buttonOK.Name = "buttonOK";
+            this.buttonOK.Size = new System.Drawing.Size(75, 23);
+            this.buttonOK.TabIndex = 0;
+            this.buttonOK.Text = "OK";
+            this.buttonOK.UseVisualStyleBackColor = true;
+            this.buttonOK.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textBoxFeedUrl
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(194, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxFeedUrl.Location = new System.Drawing.Point(78, 25);
+            this.textBoxFeedUrl.Name = "textBoxFeedUrl";
+            this.textBoxFeedUrl.Size = new System.Drawing.Size(194, 20);
+            this.textBoxFeedUrl.TabIndex = 1;
             // 
-            // label1
+            // labelFeedURL
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 28);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Feed URL:";
+            this.labelFeedURL.AutoSize = true;
+            this.labelFeedURL.Location = new System.Drawing.Point(13, 28);
+            this.labelFeedURL.Name = "labelFeedURL";
+            this.labelFeedURL.Size = new System.Drawing.Size(59, 13);
+            this.labelFeedURL.TabIndex = 2;
+            this.labelFeedURL.Text = "Feed URL:";
             // 
             // NewPodcastForm
             // 
+            this.AcceptButton = this.buttonOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 110);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelFeedURL);
+            this.Controls.Add(this.textBoxFeedUrl);
+            this.Controls.Add(this.buttonOK);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "NewPodcastForm";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add a New Podcast";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -76,8 +81,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonOK;
+        private System.Windows.Forms.TextBox textBoxFeedUrl;
+        private System.Windows.Forms.Label labelFeedURL;
     }
 }
