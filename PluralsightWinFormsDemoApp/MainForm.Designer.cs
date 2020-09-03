@@ -33,9 +33,6 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonPlay = new System.Windows.Forms.Button();
-            this.textBoxEpisodeTitle = new System.Windows.Forms.TextBox();
-            this.textBoxPublicationDate = new System.Windows.Forms.TextBox();
-            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.textBoxTags = new System.Windows.Forms.TextBox();
             this.textBoxNotes = new System.Windows.Forms.TextBox();
             this.labelMyTags = new System.Windows.Forms.Label();
@@ -43,6 +40,9 @@
             this.numericUpDownRating = new System.Windows.Forms.NumericUpDown();
             this.labelMyRating = new System.Windows.Forms.Label();
             this.checkBoxIsFavorite = new System.Windows.Forms.CheckBox();
+            this.labelEpisodeTitle = new System.Windows.Forms.Label();
+            this.labelPublicationDate = new System.Windows.Forms.Label();
+            this.labelEpisodeDescription = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,27 +101,6 @@
             this.buttonPlay.UseVisualStyleBackColor = true;
             this.buttonPlay.Click += new System.EventHandler(this.OnButtonPlayClick);
             // 
-            // textBoxEpisodeTitle
-            // 
-            this.textBoxEpisodeTitle.Location = new System.Drawing.Point(459, 13);
-            this.textBoxEpisodeTitle.Name = "textBoxEpisodeTitle";
-            this.textBoxEpisodeTitle.Size = new System.Drawing.Size(314, 20);
-            this.textBoxEpisodeTitle.TabIndex = 4;
-            // 
-            // textBoxPublicationDate
-            // 
-            this.textBoxPublicationDate.Location = new System.Drawing.Point(459, 40);
-            this.textBoxPublicationDate.Name = "textBoxPublicationDate";
-            this.textBoxPublicationDate.Size = new System.Drawing.Size(314, 20);
-            this.textBoxPublicationDate.TabIndex = 5;
-            // 
-            // textBoxDescription
-            // 
-            this.textBoxDescription.Location = new System.Drawing.Point(459, 66);
-            this.textBoxDescription.Name = "textBoxDescription";
-            this.textBoxDescription.Size = new System.Drawing.Size(314, 20);
-            this.textBoxDescription.TabIndex = 6;
-            // 
             // textBoxTags
             // 
             this.textBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -154,7 +133,7 @@
             // labelMyNotes
             // 
             this.labelMyNotes.AutoSize = true;
-            this.labelMyNotes.Location = new System.Drawing.Point(462, 166);
+            this.labelMyNotes.Location = new System.Drawing.Point(459, 166);
             this.labelMyNotes.Name = "labelMyNotes";
             this.labelMyNotes.Size = new System.Drawing.Size(55, 13);
             this.labelMyNotes.TabIndex = 7;
@@ -191,21 +170,51 @@
             this.checkBoxIsFavorite.Text = "Favorite";
             this.checkBoxIsFavorite.UseVisualStyleBackColor = true;
             // 
+            // labelEpisodeTitle
+            // 
+            this.labelEpisodeTitle.AutoSize = true;
+            this.labelEpisodeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEpisodeTitle.ForeColor = System.Drawing.Color.DarkGray;
+            this.labelEpisodeTitle.Location = new System.Drawing.Point(459, 13);
+            this.labelEpisodeTitle.Name = "labelEpisodeTitle";
+            this.labelEpisodeTitle.Size = new System.Drawing.Size(126, 25);
+            this.labelEpisodeTitle.TabIndex = 10;
+            this.labelEpisodeTitle.Text = "{{IN CODE}}";
+            // 
+            // labelPublicationDate
+            // 
+            this.labelPublicationDate.AutoSize = true;
+            this.labelPublicationDate.Location = new System.Drawing.Point(459, 44);
+            this.labelPublicationDate.Name = "labelPublicationDate";
+            this.labelPublicationDate.Size = new System.Drawing.Size(67, 13);
+            this.labelPublicationDate.TabIndex = 11;
+            this.labelPublicationDate.Text = "{{IN CODE}}";
+            // 
+            // labelEpisodeDescription
+            // 
+            this.labelEpisodeDescription.AutoSize = true;
+            this.labelEpisodeDescription.Location = new System.Drawing.Point(459, 61);
+            this.labelEpisodeDescription.Name = "labelEpisodeDescription";
+            this.labelEpisodeDescription.Size = new System.Drawing.Size(67, 13);
+            this.labelEpisodeDescription.TabIndex = 12;
+            this.labelEpisodeDescription.Text = "{{IN CODE}}";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(785, 381);
+            this.Controls.Add(this.labelEpisodeDescription);
+            this.Controls.Add(this.labelPublicationDate);
+            this.Controls.Add(this.labelEpisodeTitle);
             this.Controls.Add(this.checkBoxIsFavorite);
             this.Controls.Add(this.numericUpDownRating);
             this.Controls.Add(this.labelMyNotes);
             this.Controls.Add(this.labelMyRating);
             this.Controls.Add(this.labelMyTags);
             this.Controls.Add(this.textBoxNotes);
-            this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.textBoxTags);
-            this.Controls.Add(this.textBoxPublicationDate);
-            this.Controls.Add(this.textBoxEpisodeTitle);
             this.Controls.Add(this.buttonPlay);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonAdd);
@@ -228,9 +237,6 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.Button buttonPlay;
-        private System.Windows.Forms.TextBox textBoxEpisodeTitle;
-        private System.Windows.Forms.TextBox textBoxPublicationDate;
-        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.TextBox textBoxTags;
         private System.Windows.Forms.TextBox textBoxNotes;
         private System.Windows.Forms.Label labelMyTags;
@@ -238,6 +244,9 @@
         private System.Windows.Forms.NumericUpDown numericUpDownRating;
         private System.Windows.Forms.Label labelMyRating;
         private System.Windows.Forms.CheckBox checkBoxIsFavorite;
+        private System.Windows.Forms.Label labelEpisodeTitle;
+        private System.Windows.Forms.Label labelPublicationDate;
+        private System.Windows.Forms.Label labelEpisodeDescription;
     }
 }
 
