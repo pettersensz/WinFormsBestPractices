@@ -30,8 +30,6 @@ namespace PluralsightWinFormsDemoApp
         /// </summary>
         private void InitializeComponent()
         {
-
-            this.Dock = DockStyle.Fill;
             this.labelEpisodeDescription = new System.Windows.Forms.Label();
             this.labelPublicationDate = new System.Windows.Forms.Label();
             this.labelEpisodeTitle = new System.Windows.Forms.Label();
@@ -52,7 +50,7 @@ namespace PluralsightWinFormsDemoApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEpisodeDescription.Location = new System.Drawing.Point(7, 55);
             this.labelEpisodeDescription.Name = "labelEpisodeDescription";
-            this.labelEpisodeDescription.Size = new System.Drawing.Size(440, 51);
+            this.labelEpisodeDescription.Size = new System.Drawing.Size(1193, 51);
             this.labelEpisodeDescription.TabIndex = 23;
             this.labelEpisodeDescription.Text = "{{IN CODE}}";
             // 
@@ -75,7 +73,7 @@ namespace PluralsightWinFormsDemoApp
             this.labelEpisodeTitle.ForeColor = System.Drawing.Color.DarkGray;
             this.labelEpisodeTitle.Location = new System.Drawing.Point(7, 7);
             this.labelEpisodeTitle.Name = "labelEpisodeTitle";
-            this.labelEpisodeTitle.Size = new System.Drawing.Size(440, 25);
+            this.labelEpisodeTitle.Size = new System.Drawing.Size(1193, 25);
             this.labelEpisodeTitle.TabIndex = 21;
             this.labelEpisodeTitle.Text = "{{IN CODE}}";
             // 
@@ -136,7 +134,7 @@ namespace PluralsightWinFormsDemoApp
             this.textBoxNotes.Location = new System.Drawing.Point(7, 204);
             this.textBoxNotes.Multiline = true;
             this.textBoxNotes.Name = "textBoxNotes";
-            this.textBoxNotes.Size = new System.Drawing.Size(440, 80);
+            this.textBoxNotes.Size = new System.Drawing.Size(1193, 343);
             this.textBoxNotes.TabIndex = 15;
             // 
             // textBoxTags
@@ -145,13 +143,13 @@ namespace PluralsightWinFormsDemoApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTags.Location = new System.Drawing.Point(125, 113);
             this.textBoxTags.Name = "textBoxTags";
-            this.textBoxTags.Size = new System.Drawing.Size(322, 20);
+            this.textBoxTags.Size = new System.Drawing.Size(1075, 20);
             this.textBoxTags.TabIndex = 14;
             // 
             // buttonPlay
             // 
             this.buttonPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonPlay.Location = new System.Drawing.Point(7, 290);
+            this.buttonPlay.Location = new System.Drawing.Point(7, 553);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(75, 23);
             this.buttonPlay.TabIndex = 13;
@@ -174,7 +172,7 @@ namespace PluralsightWinFormsDemoApp
             this.Controls.Add(this.textBoxTags);
             this.Controls.Add(this.buttonPlay);
             this.Name = "EpisodeView";
-            this.Size = new System.Drawing.Size(450, 350);
+            this.Size = new System.Drawing.Size(1203, 579);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

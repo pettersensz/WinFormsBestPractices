@@ -38,11 +38,10 @@
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Panel1MinSize = 180;
             this.splitContainer1.Size = new System.Drawing.Size(785, 381);
             this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 0;
-            this.splitContainer1.Panel1.Controls.Add(_subscriptionView);
-            this.splitContainer1.Panel2.Controls.Add(_episodeView);
             // 
             // MainForm
             // 
@@ -51,6 +50,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(785, 381);
             this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(400, 300);
             this.Name = "MainForm";
             this.Text = "My Podcasts";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnMainFormClosed);

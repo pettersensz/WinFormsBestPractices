@@ -30,7 +30,6 @@ namespace PluralsightWinFormsDemoApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.Dock = DockStyle.Fill;
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.listBoxEpisodes = new System.Windows.Forms.ListBox();
@@ -42,7 +41,7 @@ namespace PluralsightWinFormsDemoApp
             // buttonRemove
             // 
             this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemove.Location = new System.Drawing.Point(84, 324);
+            this.buttonRemove.Location = new System.Drawing.Point(84, 553);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
             this.buttonRemove.TabIndex = 5;
@@ -52,7 +51,7 @@ namespace PluralsightWinFormsDemoApp
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAdd.Location = new System.Drawing.Point(3, 324);
+            this.buttonAdd.Location = new System.Drawing.Point(3, 553);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
             this.buttonAdd.TabIndex = 6;
@@ -64,9 +63,9 @@ namespace PluralsightWinFormsDemoApp
             this.listBoxEpisodes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxEpisodes.FormattingEnabled = true;
             this.listBoxEpisodes.HorizontalScrollbar = true;
-            this.listBoxEpisodes.Location = new System.Drawing.Point(225, 3);
+            this.listBoxEpisodes.Location = new System.Drawing.Point(601, 3);
             this.listBoxEpisodes.Name = "listBoxEpisodes";
-            this.listBoxEpisodes.Size = new System.Drawing.Size(216, 312);
+            this.listBoxEpisodes.Size = new System.Drawing.Size(593, 541);
             this.listBoxEpisodes.TabIndex = 4;
             // 
             // listBoxPodcasts
@@ -76,7 +75,7 @@ namespace PluralsightWinFormsDemoApp
             this.listBoxPodcasts.HorizontalScrollbar = true;
             this.listBoxPodcasts.Location = new System.Drawing.Point(3, 3);
             this.listBoxPodcasts.Name = "listBoxPodcasts";
-            this.listBoxPodcasts.Size = new System.Drawing.Size(216, 312);
+            this.listBoxPodcasts.Size = new System.Drawing.Size(592, 541);
             this.listBoxPodcasts.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -94,7 +93,7 @@ namespace PluralsightWinFormsDemoApp
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(444, 318);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1197, 547);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // SubscriptionView
@@ -105,7 +104,7 @@ namespace PluralsightWinFormsDemoApp
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonAdd);
             this.Name = "SubscriptionView";
-            this.Size = new System.Drawing.Size(450, 350);
+            this.Size = new System.Drawing.Size(1203, 579);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

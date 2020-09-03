@@ -17,9 +17,12 @@ namespace PluralsightWinFormsDemoApp
 
         public MainForm()
         {
+            InitializeComponent();
+
             _subscriptionView = new SubscriptionView
             {
-                listBoxEpisodes = {DisplayMember = "Title"},
+                listBoxEpisodes = { DisplayMember = "Title" },
+                Dock = DockStyle.Fill,
             };
             _subscriptionView.buttonAdd.Click += OnButtonAddClick;
             _subscriptionView.buttonRemove.Click += OnButtonRemoveClick;
@@ -31,10 +34,14 @@ namespace PluralsightWinFormsDemoApp
                 labelEpisodeDescription = {Text = ""},
                 labelEpisodeTitle = {Text = ""},
                 labelPublicationDate = {Text = ""},
+                Dock = DockStyle.Fill,
             };
             _episodeView.buttonPlay.Click += OnButtonPlayClick;
 
-            InitializeComponent();
+            splitContainer1.Panel1.Controls.Add(_subscriptionView);
+            splitContainer1.Panel2.Controls.Add(_episodeView);
+
+            
         }
 
         private void OnMainFormLoad(object sender, EventArgs e)
