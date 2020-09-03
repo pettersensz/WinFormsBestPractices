@@ -12,15 +12,16 @@ namespace PluralsightWinFormsDemoApp
     public partial class MainForm : Form
     {
         private Episode currentEpisode;
-        private List<Podcast> podcasts;
 
         public MainForm()
         {
             InitializeComponent();
+            listBoxEpisodes.DisplayMember = "Title";
         }
 
         private void OnMainFormLoad(object sender, EventArgs e)
         {
+            List<Podcast> podcasts;
             if (File.Exists("subscriptions.xml"))
             {
                 var serializer = new XmlSerializer(typeof(List<Podcast>));
@@ -42,10 +43,12 @@ namespace PluralsightWinFormsDemoApp
                 podcasts = defaultFeeds.Select(f => new Podcast() { SubscriptionUrl = f }).ToList();
             }
 
+            listBoxPodcasts.DisplayMember = "Title";
+
             foreach (var pod in podcasts)
             {
                 UpdatePodcast(pod);
-                listBoxPodcasts.Items.Add(pod.Title);
+                listBoxPodcasts.Items.Add(pod);
             }
         }
 
@@ -82,19 +85,15 @@ namespace PluralsightWinFormsDemoApp
 
         private void OnSelectedPodcastChanged(object sender, EventArgs e)
         {
-            listBoxEpisodes.Items.Clear();
             if (listBoxPodcasts.SelectedIndex == -1) return;
-            var pod = podcasts[listBoxPodcasts.SelectedIndex];
-            foreach (var episode in pod.Episodes)
-            {
-                listBoxEpisodes.Items.Add(episode.Title);
-            }
+            var pod = (Podcast)listBoxPodcasts.SelectedItem;
+            listBoxEpisodes.DataSource = pod.Episodes;
         }
 
         private void OnSelectedEpisodeChanged(object sender, EventArgs e)
         {
             SaveEpisode();
-            currentEpisode = podcasts[listBoxPodcasts.SelectedIndex].Episodes[listBoxEpisodes.SelectedIndex];
+            currentEpisode = (Episode)listBoxEpisodes.SelectedItem;
             textBoxEpisodeTitle.Text = currentEpisode.Title;
             textBoxPublicationDate.Text = currentEpisode.PubDate;
             textBoxDescription.Text = currentEpisode.Description;
@@ -133,7 +132,6 @@ namespace PluralsightWinFormsDemoApp
             {
                 var pod = new Podcast() {SubscriptionUrl = form.PodcastUrl };
                 UpdatePodcast(pod);
-                podcasts.Add(pod);
                 var index = listBoxPodcasts.Items.Add(pod.Title);
                 listBoxPodcasts.SelectedIndex = index;
             }
@@ -142,10 +140,10 @@ namespace PluralsightWinFormsDemoApp
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
         {
             SaveEpisode();
-            var serializer = new XmlSerializer(podcasts.GetType());
+            var serializer = new XmlSerializer(typeof(List<Podcast>));
             using (var s = File.Create("subscriptions.xml"))
             {
-                serializer.Serialize(s, podcasts);
+                serializer.Serialize(s, listBoxPodcasts.Items.Cast<Podcast>().ToList());
             }
         }
     }
