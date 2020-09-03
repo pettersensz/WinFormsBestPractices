@@ -32,10 +32,7 @@ namespace PluralsightWinFormsDemoApp
         {
             this.buttonRemove = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.listBoxEpisodes = new System.Windows.Forms.ListBox();
-            this.listBoxPodcasts = new System.Windows.Forms.ListBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.treeViewPodcasts = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // buttonRemove
@@ -58,54 +55,25 @@ namespace PluralsightWinFormsDemoApp
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             // 
-            // listBoxEpisodes
+            // treeViewPodcasts
             // 
-            this.listBoxEpisodes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxEpisodes.FormattingEnabled = true;
-            this.listBoxEpisodes.HorizontalScrollbar = true;
-            this.listBoxEpisodes.Location = new System.Drawing.Point(601, 3);
-            this.listBoxEpisodes.Name = "listBoxEpisodes";
-            this.listBoxEpisodes.Size = new System.Drawing.Size(593, 541);
-            this.listBoxEpisodes.TabIndex = 4;
-            // 
-            // listBoxPodcasts
-            // 
-            this.listBoxPodcasts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxPodcasts.FormattingEnabled = true;
-            this.listBoxPodcasts.HorizontalScrollbar = true;
-            this.listBoxPodcasts.Location = new System.Drawing.Point(3, 3);
-            this.listBoxPodcasts.Name = "listBoxPodcasts";
-            this.listBoxPodcasts.Size = new System.Drawing.Size(592, 541);
-            this.listBoxPodcasts.TabIndex = 3;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.treeViewPodcasts.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.listBoxPodcasts, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.listBoxEpisodes, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1197, 547);
-            this.tableLayoutPanel1.TabIndex = 7;
+            this.treeViewPodcasts.Location = new System.Drawing.Point(3, 3);
+            this.treeViewPodcasts.Name = "treeViewPodcasts";
+            this.treeViewPodcasts.Size = new System.Drawing.Size(1197, 544);
+            this.treeViewPodcasts.TabIndex = 7;
             // 
             // SubscriptionView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.treeViewPodcasts);
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonAdd);
             this.Name = "SubscriptionView";
             this.Size = new System.Drawing.Size(1203, 579);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -114,8 +82,6 @@ namespace PluralsightWinFormsDemoApp
 
         internal System.Windows.Forms.Button buttonRemove;
         internal System.Windows.Forms.Button buttonAdd;
-        internal System.Windows.Forms.ListBox listBoxEpisodes;
-        internal System.Windows.Forms.ListBox listBoxPodcasts;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        internal TreeView treeViewPodcasts;
     }
 }

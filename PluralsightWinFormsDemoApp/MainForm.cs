@@ -21,19 +21,17 @@ namespace PluralsightWinFormsDemoApp
 
             _subscriptionView = new SubscriptionView
             {
-                listBoxEpisodes = { DisplayMember = "Title" },
                 Dock = DockStyle.Fill,
             };
             _subscriptionView.buttonAdd.Click += OnButtonAddClick;
             _subscriptionView.buttonRemove.Click += OnButtonRemoveClick;
-            _subscriptionView.listBoxPodcasts.SelectedIndexChanged += OnSelectedPodcastChanged;
-            _subscriptionView.listBoxEpisodes.SelectedIndexChanged += OnSelectedEpisodeChanged;
+            _subscriptionView.treeViewPodcasts.AfterSelect += OnSelectedEpisodeChanged;
 
             _episodeView = new EpisodeView
             {
-                labelEpisodeDescription = {Text = ""},
-                labelEpisodeTitle = {Text = ""},
-                labelPublicationDate = {Text = ""},
+                labelEpisodeDescription = { Text = "" },
+                labelEpisodeTitle = { Text = "" },
+                labelPublicationDate = { Text = "" },
                 Dock = DockStyle.Fill,
             };
             _episodeView.buttonPlay.Click += OnButtonPlayClick;
@@ -41,7 +39,7 @@ namespace PluralsightWinFormsDemoApp
             splitContainer1.Panel1.Controls.Add(_subscriptionView);
             splitContainer1.Panel2.Controls.Add(_episodeView);
 
-            
+
         }
 
         private void OnMainFormLoad(object sender, EventArgs e)
@@ -52,7 +50,7 @@ namespace PluralsightWinFormsDemoApp
                 var serializer = new XmlSerializer(typeof(List<Podcast>));
                 using (var s = File.OpenRead("subscriptions.xml"))
                 {
-                    podcasts = (List<Podcast>) serializer.Deserialize(s);
+                    podcasts = (List<Podcast>)serializer.Deserialize(s);
                 }
             }
             else
@@ -68,12 +66,27 @@ namespace PluralsightWinFormsDemoApp
                 podcasts = defaultFeeds.Select(f => new Podcast() { SubscriptionUrl = f }).ToList();
             }
 
-            _subscriptionView.listBoxPodcasts.DisplayMember = "Title";
-
             foreach (var pod in podcasts)
             {
                 UpdatePodcast(pod);
-                _subscriptionView.listBoxPodcasts.Items.Add(pod);
+                AddPodcastToTreeView(pod);
+            }
+
+            SelectFirstEpisode();
+        }
+
+        private void SelectFirstEpisode()
+        {
+            _subscriptionView.treeViewPodcasts.SelectedNode = _subscriptionView.treeViewPodcasts.Nodes[0].FirstNode;
+        }
+
+        private void AddPodcastToTreeView(Podcast pod)
+        {
+            var podNode = new TreeNode(pod.Title) { Tag = pod };
+            _subscriptionView.treeViewPodcasts.Nodes.Add(podNode);
+            foreach (var episode in pod.Episodes)
+            {
+                podNode.Nodes.Add(new TreeNode(episode.Title) { Tag = episode });
             }
         }
 
@@ -110,25 +123,22 @@ namespace PluralsightWinFormsDemoApp
             }
         }
 
-        private void OnSelectedPodcastChanged(object sender, EventArgs e)
+        private void OnSelectedEpisodeChanged(object sender, TreeViewEventArgs e)
         {
-            if (_subscriptionView.listBoxPodcasts.SelectedIndex == -1) return;
-            var pod = (Podcast)_subscriptionView.listBoxPodcasts.SelectedItem;
-            _subscriptionView.listBoxEpisodes.DataSource = pod.Episodes;
-        }
-
-        private void OnSelectedEpisodeChanged(object sender, EventArgs e)
-        {
-            SaveEpisode();
-            _currentEpisode = (Episode)_subscriptionView.listBoxEpisodes.SelectedItem;
-            _episodeView.labelEpisodeTitle.Text = _currentEpisode.Title;
-            _episodeView.labelPublicationDate.Text = _currentEpisode.PubDate;
-            _episodeView.labelEpisodeDescription.Text = _currentEpisode.Description;
-            _episodeView.checkBoxIsFavorite.Checked = _currentEpisode.IsFavourite;
-            _currentEpisode.IsNew = false;
-            _episodeView.numericUpDownRating.Value = _currentEpisode.Rating;
-            _episodeView.textBoxTags.Text = string.Join(",", _currentEpisode.Tags ?? new string[0]);
-            _episodeView.textBoxNotes.Text = _currentEpisode.Notes ?? "";
+            Episode selectedEpisode = _subscriptionView.treeViewPodcasts.SelectedNode.Tag as Episode;
+            if (selectedEpisode != null)
+            {
+                SaveEpisode();
+                _currentEpisode = selectedEpisode;
+                _episodeView.labelEpisodeTitle.Text = _currentEpisode.Title;
+                _episodeView.labelPublicationDate.Text = _currentEpisode.PubDate;
+                _episodeView.labelEpisodeDescription.Text = _currentEpisode.Description;
+                _episodeView.checkBoxIsFavorite.Checked = _currentEpisode.IsFavourite;
+                _currentEpisode.IsNew = false;
+                _episodeView.numericUpDownRating.Value = _currentEpisode.Rating;
+                _episodeView.textBoxTags.Text = string.Join(",", _currentEpisode.Tags ?? new string[0]);
+                _episodeView.textBoxNotes.Text = _currentEpisode.Notes ?? "";
+            }
         }
 
         private void SaveEpisode()
@@ -148,18 +158,19 @@ namespace PluralsightWinFormsDemoApp
 
         private void OnButtonRemoveClick(object sender, EventArgs e)
         {
-            _subscriptionView.listBoxPodcasts.Items.Remove(_subscriptionView.listBoxPodcasts.SelectedItem);
-            _subscriptionView.listBoxPodcasts.SelectedIndex = 0;
+            var nodeToRemove = _subscriptionView.treeViewPodcasts.SelectedNode;
+            if (nodeToRemove.Parent != null) nodeToRemove = nodeToRemove.Parent;
+            _subscriptionView.treeViewPodcasts.Nodes.Remove(nodeToRemove);
+            SelectFirstEpisode();
         }
 
         private void OnButtonAddClick(object sender, EventArgs e)
         {
             var form = new NewPodcastForm();
             if (form.ShowDialog() != DialogResult.OK) return;
-            var pod = new Podcast() {SubscriptionUrl = form.PodcastUrl };
+            var pod = new Podcast() { SubscriptionUrl = form.PodcastUrl };
             UpdatePodcast(pod);
-            var index = _subscriptionView.listBoxPodcasts.Items.Add(pod.Title);
-            _subscriptionView.listBoxPodcasts.SelectedIndex = index;
+            AddPodcastToTreeView(pod);
         }
 
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
@@ -168,7 +179,12 @@ namespace PluralsightWinFormsDemoApp
             var serializer = new XmlSerializer(typeof(List<Podcast>));
             using (var s = File.Create("subscriptions.xml"))
             {
-                serializer.Serialize(s, _subscriptionView.listBoxPodcasts.Items.Cast<Podcast>().ToList());
+                var podcasts = _subscriptionView.treeViewPodcasts.Nodes
+                .Cast<TreeNode>()
+                .Select(tn => tn.Tag)
+                .OfType<Podcast>()
+                .ToList();
+            serializer.Serialize(s, podcasts);
             }
         }
     }
