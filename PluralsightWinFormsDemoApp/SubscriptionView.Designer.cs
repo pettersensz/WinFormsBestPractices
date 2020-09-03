@@ -38,21 +38,21 @@ namespace PluralsightWinFormsDemoApp
             // buttonRemove
             // 
             this.buttonRemove.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonRemove.Location = new System.Drawing.Point(84, 553);
+            this.buttonRemove.Location = new System.Drawing.Point(84, 425);
             this.buttonRemove.Name = "buttonRemove";
             this.buttonRemove.Size = new System.Drawing.Size(75, 23);
-            this.buttonRemove.TabIndex = 5;
-            this.buttonRemove.Text = "Remove";
+            this.buttonRemove.TabIndex = 3;
+            this.buttonRemove.Text = "Remo&ve";
             this.buttonRemove.UseVisualStyleBackColor = true;
             // 
             // buttonAdd
             // 
             this.buttonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonAdd.Location = new System.Drawing.Point(3, 553);
+            this.buttonAdd.Location = new System.Drawing.Point(3, 425);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonAdd.TabIndex = 6;
-            this.buttonAdd.Text = "Add";
+            this.buttonAdd.TabIndex = 2;
+            this.buttonAdd.Text = "&Add";
             this.buttonAdd.UseVisualStyleBackColor = true;
             // 
             // treeViewPodcasts
@@ -62,8 +62,8 @@ namespace PluralsightWinFormsDemoApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeViewPodcasts.Location = new System.Drawing.Point(3, 3);
             this.treeViewPodcasts.Name = "treeViewPodcasts";
-            this.treeViewPodcasts.Size = new System.Drawing.Size(1197, 544);
-            this.treeViewPodcasts.TabIndex = 7;
+            this.treeViewPodcasts.Size = new System.Drawing.Size(606, 416);
+            this.treeViewPodcasts.TabIndex = 1;
             // 
             // SubscriptionView
             // 
@@ -73,7 +73,7 @@ namespace PluralsightWinFormsDemoApp
             this.Controls.Add(this.buttonRemove);
             this.Controls.Add(this.buttonAdd);
             this.Name = "SubscriptionView";
-            this.Size = new System.Drawing.Size(1203, 579);
+            this.Size = new System.Drawing.Size(612, 451);
             this.ResumeLayout(false);
 
         }

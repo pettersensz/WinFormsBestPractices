@@ -61,8 +61,8 @@ namespace PluralsightWinFormsDemoApp
             this.bottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.bottomPanel.Location = new System.Drawing.Point(0, 51);
             this.bottomPanel.Name = "bottomPanel";
-            this.bottomPanel.Size = new System.Drawing.Size(1203, 528);
-            this.bottomPanel.TabIndex = 24;
+            this.bottomPanel.Size = new System.Drawing.Size(924, 447);
+            this.bottomPanel.TabIndex = 0;
             // 
             // checkBoxIsFavorite
             // 
@@ -70,8 +70,8 @@ namespace PluralsightWinFormsDemoApp
             this.checkBoxIsFavorite.Location = new System.Drawing.Point(120, 63);
             this.checkBoxIsFavorite.Name = "checkBoxIsFavorite";
             this.checkBoxIsFavorite.Size = new System.Drawing.Size(64, 17);
-            this.checkBoxIsFavorite.TabIndex = 28;
-            this.checkBoxIsFavorite.Text = "Favorite";
+            this.checkBoxIsFavorite.TabIndex = 4;
+            this.checkBoxIsFavorite.Text = "&Favorite";
             this.checkBoxIsFavorite.UseVisualStyleBackColor = true;
             // 
             // numericUpDownRating
@@ -84,7 +84,7 @@ namespace PluralsightWinFormsDemoApp
             0});
             this.numericUpDownRating.Name = "numericUpDownRating";
             this.numericUpDownRating.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDownRating.TabIndex = 27;
+            this.numericUpDownRating.TabIndex = 3;
             // 
             // labelMyNotes
             // 
@@ -92,8 +92,8 @@ namespace PluralsightWinFormsDemoApp
             this.labelMyNotes.Location = new System.Drawing.Point(2, 81);
             this.labelMyNotes.Name = "labelMyNotes";
             this.labelMyNotes.Size = new System.Drawing.Size(55, 13);
-            this.labelMyNotes.TabIndex = 24;
-            this.labelMyNotes.Text = "My Notes:";
+            this.labelMyNotes.TabIndex = 5;
+            this.labelMyNotes.Text = "My &Notes:";
             // 
             // labelMyRating
             // 
@@ -101,8 +101,8 @@ namespace PluralsightWinFormsDemoApp
             this.labelMyRating.Location = new System.Drawing.Point(2, 38);
             this.labelMyRating.Name = "labelMyRating";
             this.labelMyRating.Size = new System.Drawing.Size(58, 13);
-            this.labelMyRating.TabIndex = 25;
-            this.labelMyRating.Text = "My Rating:";
+            this.labelMyRating.TabIndex = 2;
+            this.labelMyRating.Text = "My &Rating:";
             // 
             // labelMyTags
             // 
@@ -110,8 +110,8 @@ namespace PluralsightWinFormsDemoApp
             this.labelMyTags.Location = new System.Drawing.Point(2, 9);
             this.labelMyTags.Name = "labelMyTags";
             this.labelMyTags.Size = new System.Drawing.Size(51, 13);
-            this.labelMyTags.TabIndex = 26;
-            this.labelMyTags.Text = "My Tags:";
+            this.labelMyTags.TabIndex = 0;
+            this.labelMyTags.Text = "My &Tags:";
             // 
             // textBoxNotes
             // 
@@ -121,8 +121,8 @@ namespace PluralsightWinFormsDemoApp
             this.textBoxNotes.Location = new System.Drawing.Point(1, 97);
             this.textBoxNotes.Multiline = true;
             this.textBoxNotes.Name = "textBoxNotes";
-            this.textBoxNotes.Size = new System.Drawing.Size(1199, 399);
-            this.textBoxNotes.TabIndex = 23;
+            this.textBoxNotes.Size = new System.Drawing.Size(920, 318);
+            this.textBoxNotes.TabIndex = 6;
             // 
             // textBoxTags
             // 
@@ -130,17 +130,17 @@ namespace PluralsightWinFormsDemoApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTags.Location = new System.Drawing.Point(120, 9);
             this.textBoxTags.Name = "textBoxTags";
-            this.textBoxTags.Size = new System.Drawing.Size(1081, 20);
-            this.textBoxTags.TabIndex = 22;
+            this.textBoxTags.Size = new System.Drawing.Size(802, 20);
+            this.textBoxTags.TabIndex = 1;
             // 
             // buttonPlay
             // 
             this.buttonPlay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonPlay.Location = new System.Drawing.Point(0, 502);
+            this.buttonPlay.Location = new System.Drawing.Point(0, 421);
             this.buttonPlay.Name = "buttonPlay";
             this.buttonPlay.Size = new System.Drawing.Size(75, 23);
-            this.buttonPlay.TabIndex = 21;
-            this.buttonPlay.Text = "Play";
+            this.buttonPlay.TabIndex = 7;
+            this.buttonPlay.Text = "&Play";
             this.buttonPlay.UseVisualStyleBackColor = true;
             // 
             // topFlowLayoutPanel
@@ -153,7 +153,7 @@ namespace PluralsightWinFormsDemoApp
             this.topFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.topFlowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.topFlowLayoutPanel.Name = "topFlowLayoutPanel";
-            this.topFlowLayoutPanel.Size = new System.Drawing.Size(1203, 51);
+            this.topFlowLayoutPanel.Size = new System.Drawing.Size(924, 51);
             this.topFlowLayoutPanel.TabIndex = 25;
             this.topFlowLayoutPanel.WrapContents = false;
             // 
@@ -165,7 +165,7 @@ namespace PluralsightWinFormsDemoApp
             this.labelEpisodeTitle.Location = new System.Drawing.Point(3, 0);
             this.labelEpisodeTitle.Name = "labelEpisodeTitle";
             this.labelEpisodeTitle.Size = new System.Drawing.Size(126, 25);
-            this.labelEpisodeTitle.TabIndex = 22;
+            this.labelEpisodeTitle.TabIndex = 0;
             this.labelEpisodeTitle.Text = "{{IN CODE}}";
             // 
             // labelPublicationDate
@@ -175,7 +175,7 @@ namespace PluralsightWinFormsDemoApp
             this.labelPublicationDate.Location = new System.Drawing.Point(3, 25);
             this.labelPublicationDate.Name = "labelPublicationDate";
             this.labelPublicationDate.Size = new System.Drawing.Size(67, 13);
-            this.labelPublicationDate.TabIndex = 23;
+            this.labelPublicationDate.TabIndex = 1;
             this.labelPublicationDate.Text = "{{IN CODE}}";
             // 
             // labelEpisodeDescription
@@ -185,7 +185,7 @@ namespace PluralsightWinFormsDemoApp
             this.labelEpisodeDescription.MaximumSize = new System.Drawing.Size(10000, 150);
             this.labelEpisodeDescription.Name = "labelEpisodeDescription";
             this.labelEpisodeDescription.Size = new System.Drawing.Size(67, 13);
-            this.labelEpisodeDescription.TabIndex = 24;
+            this.labelEpisodeDescription.TabIndex = 2;
             this.labelEpisodeDescription.Text = "{{IN CODE}}";
             // 
             // EpisodeView
@@ -195,7 +195,7 @@ namespace PluralsightWinFormsDemoApp
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topFlowLayoutPanel);
             this.Name = "EpisodeView";
-            this.Size = new System.Drawing.Size(1203, 579);
+            this.Size = new System.Drawing.Size(924, 498);
             this.bottomPanel.ResumeLayout(false);
             this.bottomPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).EndInit();

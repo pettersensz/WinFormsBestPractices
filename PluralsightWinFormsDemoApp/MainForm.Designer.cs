@@ -42,6 +42,7 @@
             this.splitContainer1.Size = new System.Drawing.Size(785, 381);
             this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabStop = false;
             // 
             // MainForm
             // 
