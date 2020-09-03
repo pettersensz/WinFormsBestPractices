@@ -15,6 +15,8 @@ namespace PluralsightWinFormsDemoApp
         public EpisodeView()
         {
             InitializeComponent();
+            toolTipEpisodeView.SetToolTip(textBoxTags,"Enter tags for this podcast, comma separated.");
+            toolTipEpisodeView.SetToolTip(buttonPlay, "Play the podcast in windows media player.");
         }
     }
 }

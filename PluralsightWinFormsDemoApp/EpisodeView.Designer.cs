@@ -30,6 +30,7 @@ namespace PluralsightWinFormsDemoApp
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.bottomPanel = new System.Windows.Forms.Panel();
             this.checkBoxIsFavorite = new System.Windows.Forms.CheckBox();
             this.numericUpDownRating = new System.Windows.Forms.NumericUpDown();
@@ -43,6 +44,7 @@ namespace PluralsightWinFormsDemoApp
             this.labelEpisodeTitle = new System.Windows.Forms.Label();
             this.labelPublicationDate = new System.Windows.Forms.Label();
             this.labelEpisodeDescription = new System.Windows.Forms.Label();
+            this.toolTipEpisodeView = new System.Windows.Forms.ToolTip(this.components);
             this.bottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).BeginInit();
             this.topFlowLayoutPanel.SuspendLayout();
@@ -221,5 +223,6 @@ namespace PluralsightWinFormsDemoApp
         internal Label labelEpisodeTitle;
         internal Label labelPublicationDate;
         internal Label labelEpisodeDescription;
+        private ToolTip toolTipEpisodeView;
     }
 }
