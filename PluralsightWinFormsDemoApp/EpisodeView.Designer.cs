@@ -182,6 +182,7 @@ namespace PluralsightWinFormsDemoApp
             // 
             this.labelEpisodeDescription.AutoSize = true;
             this.labelEpisodeDescription.Location = new System.Drawing.Point(3, 38);
+            this.labelEpisodeDescription.MaximumSize = new System.Drawing.Size(10000, 150);
             this.labelEpisodeDescription.Name = "labelEpisodeDescription";
             this.labelEpisodeDescription.Size = new System.Drawing.Size(67, 13);
             this.labelEpisodeDescription.TabIndex = 24;

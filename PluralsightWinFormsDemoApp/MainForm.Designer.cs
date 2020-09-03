@@ -50,7 +50,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(785, 381);
             this.Controls.Add(this.splitContainer1);
-            this.MinimumSize = new System.Drawing.Size(400, 300);
+            this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "MainForm";
             this.Text = "My Podcasts";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnMainFormClosed);
