@@ -105,9 +105,9 @@
             // 
             this.textBoxTags.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTags.Location = new System.Drawing.Point(577, 94);
+            this.textBoxTags.Location = new System.Drawing.Point(577, 119);
             this.textBoxTags.Name = "textBoxTags";
-            this.textBoxTags.Size = new System.Drawing.Size(196, 20);
+            this.textBoxTags.Size = new System.Drawing.Size(193, 20);
             this.textBoxTags.TabIndex = 4;
             // 
             // textBoxNotes
@@ -115,16 +115,16 @@
             this.textBoxNotes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxNotes.Location = new System.Drawing.Point(462, 182);
+            this.textBoxNotes.Location = new System.Drawing.Point(459, 210);
             this.textBoxNotes.Multiline = true;
             this.textBoxNotes.Name = "textBoxNotes";
-            this.textBoxNotes.Size = new System.Drawing.Size(311, 147);
+            this.textBoxNotes.Size = new System.Drawing.Size(311, 119);
             this.textBoxNotes.TabIndex = 6;
             // 
             // labelMyTags
             // 
             this.labelMyTags.AutoSize = true;
-            this.labelMyTags.Location = new System.Drawing.Point(459, 94);
+            this.labelMyTags.Location = new System.Drawing.Point(459, 119);
             this.labelMyTags.Name = "labelMyTags";
             this.labelMyTags.Size = new System.Drawing.Size(51, 13);
             this.labelMyTags.TabIndex = 7;
@@ -133,7 +133,7 @@
             // labelMyNotes
             // 
             this.labelMyNotes.AutoSize = true;
-            this.labelMyNotes.Location = new System.Drawing.Point(459, 166);
+            this.labelMyNotes.Location = new System.Drawing.Point(459, 191);
             this.labelMyNotes.Name = "labelMyNotes";
             this.labelMyNotes.Size = new System.Drawing.Size(55, 13);
             this.labelMyNotes.TabIndex = 7;
@@ -141,7 +141,7 @@
             // 
             // numericUpDownRating
             // 
-            this.numericUpDownRating.Location = new System.Drawing.Point(577, 121);
+            this.numericUpDownRating.Location = new System.Drawing.Point(577, 146);
             this.numericUpDownRating.Maximum = new decimal(new int[] {
             5,
             0,
@@ -154,7 +154,7 @@
             // labelMyRating
             // 
             this.labelMyRating.AutoSize = true;
-            this.labelMyRating.Location = new System.Drawing.Point(459, 123);
+            this.labelMyRating.Location = new System.Drawing.Point(459, 148);
             this.labelMyRating.Name = "labelMyRating";
             this.labelMyRating.Size = new System.Drawing.Size(58, 13);
             this.labelMyRating.TabIndex = 7;
@@ -163,7 +163,7 @@
             // checkBoxIsFavorite
             // 
             this.checkBoxIsFavorite.AutoSize = true;
-            this.checkBoxIsFavorite.Location = new System.Drawing.Point(577, 148);
+            this.checkBoxIsFavorite.Location = new System.Drawing.Point(577, 173);
             this.checkBoxIsFavorite.Name = "checkBoxIsFavorite";
             this.checkBoxIsFavorite.Size = new System.Drawing.Size(64, 17);
             this.checkBoxIsFavorite.TabIndex = 9;
@@ -172,18 +172,21 @@
             // 
             // labelEpisodeTitle
             // 
-            this.labelEpisodeTitle.AutoSize = true;
+            this.labelEpisodeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelEpisodeTitle.AutoEllipsis = true;
             this.labelEpisodeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelEpisodeTitle.ForeColor = System.Drawing.Color.DarkGray;
             this.labelEpisodeTitle.Location = new System.Drawing.Point(459, 13);
             this.labelEpisodeTitle.Name = "labelEpisodeTitle";
-            this.labelEpisodeTitle.Size = new System.Drawing.Size(126, 25);
+            this.labelEpisodeTitle.Size = new System.Drawing.Size(311, 25);
             this.labelEpisodeTitle.TabIndex = 10;
             this.labelEpisodeTitle.Text = "{{IN CODE}}";
             // 
             // labelPublicationDate
             // 
             this.labelPublicationDate.AutoSize = true;
+            this.labelPublicationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPublicationDate.Location = new System.Drawing.Point(459, 44);
             this.labelPublicationDate.Name = "labelPublicationDate";
             this.labelPublicationDate.Size = new System.Drawing.Size(67, 13);
@@ -192,10 +195,11 @@
             // 
             // labelEpisodeDescription
             // 
-            this.labelEpisodeDescription.AutoSize = true;
+            this.labelEpisodeDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.labelEpisodeDescription.Location = new System.Drawing.Point(459, 61);
             this.labelEpisodeDescription.Name = "labelEpisodeDescription";
-            this.labelEpisodeDescription.Size = new System.Drawing.Size(67, 13);
+            this.labelEpisodeDescription.Size = new System.Drawing.Size(311, 51);
             this.labelEpisodeDescription.TabIndex = 12;
             this.labelEpisodeDescription.Text = "{{IN CODE}}";
             // 
