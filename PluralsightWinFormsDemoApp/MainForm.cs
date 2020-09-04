@@ -6,7 +6,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -89,13 +88,17 @@ namespace PluralsightWinFormsDemoApp
 
             foreach (var pod in podcasts)
             {
-                await Task.Run(() => UpdatePodcast(pod));
-                AddPodcastToTreeView(pod);
+                var updatePodcastTask = Task.Run(() => UpdatePodcast(pod));
+                var firstTask = await Task.WhenAny(updatePodcastTask, Task.Delay(2000));
+                if(firstTask == updatePodcastTask)
+                {
+                    AddPodcastToTreeView(pod);
+                }
             }
 
             SelectFirstEpisode();
 
-            if(Settings.Default.FirstRun)
+            if (Settings.Default.FirstRun)
             {
                 MessageBox.Show("Welcome! Get started by clicking Add to subscribe to a new podcast.");
                 Settings.Default.FirstRun = false;
@@ -213,11 +216,11 @@ namespace PluralsightWinFormsDemoApp
                 UpdatePodcast(pod);
                 AddPodcastToTreeView(pod);
             }
-            catch(WebException)
+            catch (WebException)
             {
                 MessageBox.Show("Sorry, that podcast could not be found. Please check the URL.");
             }
-            catch(XmlException)
+            catch (XmlException)
             {
                 MessageBox.Show("Sorry, that URL is not a podcast feed.");
             }
@@ -234,7 +237,7 @@ namespace PluralsightWinFormsDemoApp
                 .Select(tn => tn.Tag)
                 .OfType<Podcast>()
                 .ToList();
-            serializer.Serialize(s, podcasts);
+                serializer.Serialize(s, podcasts);
             }
         }
     }
