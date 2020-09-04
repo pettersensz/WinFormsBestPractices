@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Security.Policy;
 using System.Windows.Forms;
 using System.Xml;
@@ -203,8 +204,19 @@ namespace PluralsightWinFormsDemoApp
             var form = new NewPodcastForm();
             if (form.ShowDialog() != DialogResult.OK) return;
             var pod = new Podcast() { SubscriptionUrl = form.PodcastUrl };
-            UpdatePodcast(pod);
-            AddPodcastToTreeView(pod);
+            try
+            {
+                UpdatePodcast(pod);
+                AddPodcastToTreeView(pod);
+            }
+            catch(WebException)
+            {
+                MessageBox.Show("Sorry, that podcast could not be found. Please check the URL.");
+            }
+            catch(XmlException)
+            {
+                MessageBox.Show("Sorry, that URL is not a podcast feed.")    
+            }
         }
 
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
