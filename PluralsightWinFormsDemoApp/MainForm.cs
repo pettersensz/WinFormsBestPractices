@@ -11,7 +11,7 @@ using System.Xml;
 
 namespace PluralsightWinFormsDemoApp
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IMainFormView
     {
         private Episode _currentEpisode;
         private readonly SubscriptionView _subscriptionView;
@@ -25,36 +25,41 @@ namespace PluralsightWinFormsDemoApp
         {
             InitializeComponent();
 
-            _subscriptionManager = new SubscriptionManager("subscriptions.xml");
-            _podcastLoader = new PodcastLoader();
-            _podcastPlayer = new PodcastPlayer();
-
-            _subscriptionView = new SubscriptionView
-            {
-                Dock = DockStyle.Fill,
-            };
-            _subscriptionView.buttonAdd.Click += OnButtonAddClick;
-            _subscriptionView.buttonRemove.Click += OnButtonRemoveClick;
-            _subscriptionView.treeViewPodcasts.AfterSelect += OnSelectedEpisodeChanged;
-
-            _episodeView = new EpisodeView
-            {
-                labelEpisodeDescription = { Text = "" },
-                labelEpisodeTitle = { Text = "" },
-                labelPublicationDate = { Text = "" },
-                Dock = DockStyle.Fill,
-            };
-            _episodeView.buttonPlay.Click += OnButtonPlayClick;
-            _episodeView.buttonStop.Click += OnButtonStopClick;
-
-            _podcastView = new PodcastView
-            {
-                Dock = DockStyle.Fill,
-            };
-
+            _episodeView = new EpisodeView() {Dock = DockStyle.Fill};
+            _podcastView = new PodcastView() {Dock = DockStyle.Fill};
+            _subscriptionView = new SubscriptionView() {Dock = DockStyle.Fill};
             splitContainer1.Panel1.Controls.Add(_subscriptionView);
 
-            if (!SystemInformation.HighContrast) BackColor = Color.White;
+            //_subscriptionManager = new SubscriptionManager("subscriptions.xml");
+            //_podcastLoader = new PodcastLoader();
+            //_podcastPlayer = new PodcastPlayer();
+
+            //_subscriptionView = new SubscriptionView
+            //{
+            //    Dock = DockStyle.Fill,
+            //};
+            //_subscriptionView.buttonAdd.Click += OnButtonAddClick;
+            //_subscriptionView.buttonRemove.Click += OnButtonRemoveClick;
+            //_subscriptionView.treeViewPodcasts.AfterSelect += OnSelectedEpisodeChanged;
+
+            //_episodeView = new EpisodeView
+            //{
+            //    labelEpisodeDescription = { Text = "" },
+            //    labelEpisodeTitle = { Text = "" },
+            //    labelPublicationDate = { Text = "" },
+            //    Dock = DockStyle.Fill,
+            //};
+            //_episodeView.buttonPlay.Click += OnButtonPlayClick;
+            //_episodeView.buttonStop.Click += OnButtonStopClick;
+
+            //_podcastView = new PodcastView
+            //{
+            //    Dock = DockStyle.Fill,
+            //};
+
+            //splitContainer1.Panel1.Controls.Add(_subscriptionView);
+
+            //if (!SystemInformation.HighContrast) BackColor = Color.White;
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -189,5 +194,39 @@ namespace PluralsightWinFormsDemoApp
                 .ToList();
             _subscriptionManager.SavePodcasts(podcasts);
         }
+
+        public IEpisodeView EpisodeView => _episodeView;
+        public IPodcastView PodcastView => _podcastView;
+        public ISubscriptionView SubscriptionView => _subscriptionView;
+
+
+        public void ShowEpisodeView()
+        {
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(_episodeView);
+        }
+
+        public void ShowPodcastView()
+        {
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(_podcastView);
+        }
+    }
+
+    public interface IMainFormView
+    {
+        event EventHandler Load;
+        event FormClosedEventHandler FormClosed;
+        event HelpEventHandler HelpRequested;
+        event KeyEventHandler KeyUp;
+
+        IEpisodeView EpisodeView { get; }
+        IPodcastView PodcastView { get; }
+        ISubscriptionView SubscriptionView { get; }
+
+        Color BackColor { get; set; }
+
+        void ShowEpisodeView();
+        void ShowPodcastView();
     }
 }
