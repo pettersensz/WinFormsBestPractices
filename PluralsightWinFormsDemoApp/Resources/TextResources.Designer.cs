@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PluralsightWinFormsDemoApp {
+namespace PluralsightWinFormsDemoApp.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PluralsightWinFormsDemoApp {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PluralsightWinFormsDemoApp.TextResources", typeof(TextResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PluralsightWinFormsDemoApp.Resources.TextResources", typeof(TextResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

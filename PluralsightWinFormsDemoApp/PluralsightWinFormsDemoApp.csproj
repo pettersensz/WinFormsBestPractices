@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Episode.cs" />
-    <Compile Include="EpisodeView.cs">
+    <Compile Include="Objects\Episode.cs" />
+    <Compile Include="Views\EpisodeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="EpisodeView.Designer.cs">
+    <Compile Include="Views\EpisodeView.Designer.cs">
       <DependentUpon>EpisodeView.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
@@ -63,33 +63,33 @@
     <Compile Include="NewPodcastForm.Designer.cs">
       <DependentUpon>NewPodcastForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Podcast.cs" />
-    <Compile Include="PodcastView.cs">
+    <Compile Include="Objects\Podcast.cs" />
+    <Compile Include="Views\PodcastView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="PodcastView.Designer.cs">
+    <Compile Include="Views\PodcastView.Designer.cs">
       <DependentUpon>PodcastView.cs</DependentUpon>
     </Compile>
-    <Compile Include="SubscriptionView.cs">
+    <Compile Include="Views\SubscriptionView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SubscriptionView.Designer.cs">
+    <Compile Include="Views\SubscriptionView.Designer.cs">
       <DependentUpon>SubscriptionView.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextResources.Designer.cs">
+    <Compile Include="Resources\TextResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TextResources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="EpisodeView.en-GB.resx">
+    <EmbeddedResource Include="Views\EpisodeView.en-GB.resx">
       <DependentUpon>EpisodeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EpisodeView.fr.resx">
+    <EmbeddedResource Include="Views\EpisodeView.fr.resx">
       <DependentUpon>EpisodeView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EpisodeView.resx">
+    <EmbeddedResource Include="Views\EpisodeView.resx">
       <DependentUpon>EpisodeView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -98,10 +98,10 @@
     <EmbeddedResource Include="NewPodcastForm.resx">
       <DependentUpon>NewPodcastForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PodcastView.resx">
+    <EmbeddedResource Include="Views\PodcastView.resx">
       <DependentUpon>PodcastView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SubscriptionView.resx">
+    <EmbeddedResource Include="Views\SubscriptionView.resx">
       <DependentUpon>SubscriptionView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -113,8 +113,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TextResources.fr.resx" />
-    <EmbeddedResource Include="TextResources.resx">
+    <EmbeddedResource Include="Resources\TextResources.fr.resx" />
+    <EmbeddedResource Include="Resources\TextResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -131,6 +131,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

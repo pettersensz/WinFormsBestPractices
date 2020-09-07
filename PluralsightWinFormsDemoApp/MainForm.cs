@@ -1,4 +1,6 @@
-﻿using PluralsightWinFormsDemoApp.Properties;
+﻿using PluralsightWinFormsDemoApp.Objects;
+using PluralsightWinFormsDemoApp.Properties;
+using PluralsightWinFormsDemoApp.Views;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -90,7 +92,7 @@ namespace PluralsightWinFormsDemoApp
             {
                 var updatePodcastTask = Task.Run(() => UpdatePodcast(pod));
                 var firstTask = await Task.WhenAny(updatePodcastTask, Task.Delay(2000));
-                if(firstTask == updatePodcastTask)
+                if (firstTask == updatePodcastTask)
                 {
                     AddPodcastToTreeView(pod);
                 }
@@ -158,8 +160,7 @@ namespace PluralsightWinFormsDemoApp
 
         private void OnSelectedEpisodeChanged(object sender, TreeViewEventArgs e)
         {
-            Episode selectedEpisode = _subscriptionView.treeViewPodcasts.SelectedNode.Tag as Episode;
-            if (selectedEpisode != null)
+            if (_subscriptionView.treeViewPodcasts.SelectedNode.Tag is Episode selectedEpisode)
             {
                 splitContainer1.Panel2.Controls.Clear();
                 splitContainer1.Panel2.Controls.Add(_episodeView);
@@ -174,13 +175,11 @@ namespace PluralsightWinFormsDemoApp
                 _episodeView.textBoxTags.Text = string.Join(",", _currentEpisode.Tags ?? new string[0]);
                 _episodeView.textBoxNotes.Text = _currentEpisode.Notes ?? "";
             }
-            Podcast selectedPodcast = _subscriptionView.treeViewPodcasts.SelectedNode.Tag as Podcast;
-            if (selectedPodcast != null)
-            {
-                splitContainer1.Panel2.Controls.Clear();
-                splitContainer1.Panel2.Controls.Add(_podcastView);
-                _podcastView.SetPodcast(selectedPodcast);
-            }
+
+            if (!(_subscriptionView.treeViewPodcasts.SelectedNode.Tag is Podcast selectedPodcast)) return;
+            splitContainer1.Panel2.Controls.Clear();
+            splitContainer1.Panel2.Controls.Add(_podcastView);
+            _podcastView.SetPodcast(selectedPodcast);
         }
 
         private void SaveEpisode()
