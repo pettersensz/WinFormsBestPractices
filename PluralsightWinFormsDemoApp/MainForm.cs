@@ -5,14 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
-using System.Xml.Serialization;
 
 namespace PluralsightWinFormsDemoApp
 {
@@ -22,10 +20,17 @@ namespace PluralsightWinFormsDemoApp
         private readonly SubscriptionView _subscriptionView;
         private readonly EpisodeView _episodeView;
         private readonly PodcastView _podcastView;
+        private readonly SubscriptionManager _subscriptionManager;
+        private readonly PodcastLoader _podcastLoader;
+        private PodcastPlayer _podcastPlayer;
 
         public MainForm()
         {
             InitializeComponent();
+
+            _subscriptionManager = new SubscriptionManager("subscriptions.xml");
+            _podcastLoader = new PodcastLoader();
+            _podcastPlayer = new PodcastPlayer();
 
             _subscriptionView = new SubscriptionView
             {
@@ -43,6 +48,7 @@ namespace PluralsightWinFormsDemoApp
                 Dock = DockStyle.Fill,
             };
             _episodeView.buttonPlay.Click += OnButtonPlayClick;
+            _episodeView.buttonStop.Click += OnButtonStopClick;
 
             _podcastView = new PodcastView
             {
@@ -66,36 +72,12 @@ namespace PluralsightWinFormsDemoApp
 
         private async void OnMainFormLoad(object sender, EventArgs e)
         {
-            List<Podcast> podcasts;
-            if (File.Exists("subscriptions.xml"))
-            {
-                var serializer = new XmlSerializer(typeof(List<Podcast>));
-                using (var s = File.OpenRead("subscriptions.xml"))
-                {
-                    podcasts = (List<Podcast>)serializer.Deserialize(s);
-                }
-            }
-            else
-            {
-                var defaultFeeds = new[]
-                {
-                    "http://hwpod.libsyn.com/rss",
-                    "http://feeds.feedburner.com/herdingcode",
-                    "http://www.pwop.com/feed.aspx?show=dotnetrocks&amp;filetype=master",
-                    "http://feeds.feedburner.com/JesseLibertyYapcast",
-                    "http://feeds.feedburner.com/HanselminutesCompleteMP3"
-                };
-                podcasts = defaultFeeds.Select(f => new Podcast() { SubscriptionUrl = f }).ToList();
-            }
+            var podcasts = _subscriptionManager.LoadPodcasts();
 
             foreach (var pod in podcasts)
             {
-                var updatePodcastTask = Task.Run(() => UpdatePodcast(pod));
-                var firstTask = await Task.WhenAny(updatePodcastTask, Task.Delay(2000));
-                if (firstTask == updatePodcastTask)
-                {
-                    AddPodcastToTreeView(pod);
-                }
+                await Task.Run(() => _podcastLoader.UpdatePodcast(pod));
+                AddPodcastToTreeView(pod);
             }
 
             SelectFirstEpisode();
@@ -123,40 +105,6 @@ namespace PluralsightWinFormsDemoApp
             }
         }
 
-        void UpdatePodcast(Podcast podcast)
-        {
-            var r = new Random();
-            Thread.Sleep(r.Next(3000));
-            var doc = new XmlDocument();
-            doc.Load(podcast.SubscriptionUrl);
-
-            var channel = doc["rss"]["channel"];
-            var items = channel.GetElementsByTagName("item");
-            podcast.Title = channel["title"].InnerText;
-            podcast.Link = channel["link"].InnerText;
-            podcast.Description = channel["description"].InnerText;
-            if (podcast.Episodes == null) podcast.Episodes = new List<Episode>();
-            foreach (XmlNode item in items)
-            {
-                var guid = item["guid"].InnerText;
-                var episode = podcast.Episodes.FirstOrDefault(e => e.Guid == guid);
-                if (episode != null) continue;
-                episode = new Episode
-                {
-                    Guid = guid,
-                    IsNew = true,
-                    Title = item["title"].InnerText,
-                    PubDate = item["pubDate"].InnerText
-                };
-                var xmlElement = item["description"];
-                if (xmlElement != null) episode.Description = xmlElement.InnerText;
-                var element = item["link"];
-                if (element != null) episode.Link = element.InnerText;
-                var enclosureElement = item["enclosure"];
-                if (enclosureElement != null) episode.AudioFile = enclosureElement.Attributes["url"].InnerText;
-                podcast.Episodes.Add(episode);
-            }
-        }
 
         private void OnSelectedEpisodeChanged(object sender, TreeViewEventArgs e)
         {
@@ -194,7 +142,15 @@ namespace PluralsightWinFormsDemoApp
 
         private void OnButtonPlayClick(object sender, EventArgs e)
         {
-            Process.Start(_currentEpisode.AudioFile ?? _currentEpisode.Link);
+            if(_currentEpisode == null) return;
+            _podcastPlayer.LoadEpisode(_currentEpisode);
+            _podcastPlayer.Play();
+        }
+
+        private void OnButtonStopClick(object sender, EventArgs e)
+        {
+            if (_currentEpisode == null) return;
+            _podcastPlayer.Stop();
         }
 
         private void OnButtonRemoveClick(object sender, EventArgs e)
@@ -205,14 +161,14 @@ namespace PluralsightWinFormsDemoApp
             SelectFirstEpisode();
         }
 
-        private void OnButtonAddClick(object sender, EventArgs e)
+        private async void OnButtonAddClick(object sender, EventArgs e)
         {
             var form = new NewPodcastForm();
             if (form.ShowDialog() != DialogResult.OK) return;
             var pod = new Podcast() { SubscriptionUrl = form.PodcastUrl };
             try
             {
-                UpdatePodcast(pod);
+                await _podcastLoader.UpdatePodcast(pod);
                 AddPodcastToTreeView(pod);
             }
             catch (WebException)
@@ -228,16 +184,12 @@ namespace PluralsightWinFormsDemoApp
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
         {
             SaveEpisode();
-            var serializer = new XmlSerializer(typeof(List<Podcast>));
-            using (var s = File.Create("subscriptions.xml"))
-            {
-                var podcasts = _subscriptionView.treeViewPodcasts.Nodes
+            var podcasts = _subscriptionView.treeViewPodcasts.Nodes
                 .Cast<TreeNode>()
                 .Select(tn => tn.Tag)
                 .OfType<Podcast>()
                 .ToList();
-                serializer.Serialize(s, podcasts);
-            }
+            _subscriptionManager.SavePodcasts(podcasts);
         }
     }
 }

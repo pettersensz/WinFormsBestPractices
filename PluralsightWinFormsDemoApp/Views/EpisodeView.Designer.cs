@@ -33,6 +33,7 @@ namespace PluralsightWinFormsDemoApp.Views
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EpisodeView));
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.buttonStop = new System.Windows.Forms.Button();
             this.checkBoxIsFavorite = new System.Windows.Forms.CheckBox();
             this.numericUpDownRating = new System.Windows.Forms.NumericUpDown();
             this.labelMyNotes = new System.Windows.Forms.Label();
@@ -53,7 +54,7 @@ namespace PluralsightWinFormsDemoApp.Views
             // 
             // bottomPanel
             // 
-            resources.ApplyResources(this.bottomPanel, "bottomPanel");
+            this.bottomPanel.Controls.Add(this.buttonStop);
             this.bottomPanel.Controls.Add(this.checkBoxIsFavorite);
             this.bottomPanel.Controls.Add(this.numericUpDownRating);
             this.bottomPanel.Controls.Add(this.labelMyNotes);
@@ -62,14 +63,19 @@ namespace PluralsightWinFormsDemoApp.Views
             this.bottomPanel.Controls.Add(this.textBoxNotes);
             this.bottomPanel.Controls.Add(this.textBoxTags);
             this.bottomPanel.Controls.Add(this.buttonPlay);
+            resources.ApplyResources(this.bottomPanel, "bottomPanel");
             this.bottomPanel.Name = "bottomPanel";
-            this.toolTipEpisodeView.SetToolTip(this.bottomPanel, resources.GetString("bottomPanel.ToolTip"));
+            // 
+            // buttonStop
+            // 
+            resources.ApplyResources(this.buttonStop, "buttonStop");
+            this.buttonStop.Name = "buttonStop";
+            this.buttonStop.UseVisualStyleBackColor = true;
             // 
             // checkBoxIsFavorite
             // 
             resources.ApplyResources(this.checkBoxIsFavorite, "checkBoxIsFavorite");
             this.checkBoxIsFavorite.Name = "checkBoxIsFavorite";
-            this.toolTipEpisodeView.SetToolTip(this.checkBoxIsFavorite, resources.GetString("checkBoxIsFavorite.ToolTip"));
             this.checkBoxIsFavorite.UseVisualStyleBackColor = true;
             // 
             // numericUpDownRating
@@ -81,43 +87,36 @@ namespace PluralsightWinFormsDemoApp.Views
             0,
             0});
             this.numericUpDownRating.Name = "numericUpDownRating";
-            this.toolTipEpisodeView.SetToolTip(this.numericUpDownRating, resources.GetString("numericUpDownRating.ToolTip"));
             // 
             // labelMyNotes
             // 
             resources.ApplyResources(this.labelMyNotes, "labelMyNotes");
             this.labelMyNotes.Name = "labelMyNotes";
-            this.toolTipEpisodeView.SetToolTip(this.labelMyNotes, resources.GetString("labelMyNotes.ToolTip"));
             // 
             // labelMyRating
             // 
             resources.ApplyResources(this.labelMyRating, "labelMyRating");
             this.labelMyRating.Name = "labelMyRating";
-            this.toolTipEpisodeView.SetToolTip(this.labelMyRating, resources.GetString("labelMyRating.ToolTip"));
             // 
             // labelMyTags
             // 
             resources.ApplyResources(this.labelMyTags, "labelMyTags");
             this.labelMyTags.Name = "labelMyTags";
-            this.toolTipEpisodeView.SetToolTip(this.labelMyTags, resources.GetString("labelMyTags.ToolTip"));
             // 
             // textBoxNotes
             // 
             resources.ApplyResources(this.textBoxNotes, "textBoxNotes");
             this.textBoxNotes.Name = "textBoxNotes";
-            this.toolTipEpisodeView.SetToolTip(this.textBoxNotes, resources.GetString("textBoxNotes.ToolTip"));
             // 
             // textBoxTags
             // 
             resources.ApplyResources(this.textBoxTags, "textBoxTags");
             this.textBoxTags.Name = "textBoxTags";
-            this.toolTipEpisodeView.SetToolTip(this.textBoxTags, resources.GetString("textBoxTags.ToolTip"));
             // 
             // buttonPlay
             // 
             resources.ApplyResources(this.buttonPlay, "buttonPlay");
             this.buttonPlay.Name = "buttonPlay";
-            this.toolTipEpisodeView.SetToolTip(this.buttonPlay, resources.GetString("buttonPlay.ToolTip"));
             this.buttonPlay.UseVisualStyleBackColor = true;
             // 
             // topFlowLayoutPanel
@@ -127,26 +126,22 @@ namespace PluralsightWinFormsDemoApp.Views
             this.topFlowLayoutPanel.Controls.Add(this.labelPublicationDate);
             this.topFlowLayoutPanel.Controls.Add(this.labelEpisodeDescription);
             this.topFlowLayoutPanel.Name = "topFlowLayoutPanel";
-            this.toolTipEpisodeView.SetToolTip(this.topFlowLayoutPanel, resources.GetString("topFlowLayoutPanel.ToolTip"));
             // 
             // labelEpisodeTitle
             // 
             resources.ApplyResources(this.labelEpisodeTitle, "labelEpisodeTitle");
             this.labelEpisodeTitle.ForeColor = System.Drawing.Color.DarkGray;
             this.labelEpisodeTitle.Name = "labelEpisodeTitle";
-            this.toolTipEpisodeView.SetToolTip(this.labelEpisodeTitle, resources.GetString("labelEpisodeTitle.ToolTip"));
             // 
             // labelPublicationDate
             // 
             resources.ApplyResources(this.labelPublicationDate, "labelPublicationDate");
             this.labelPublicationDate.Name = "labelPublicationDate";
-            this.toolTipEpisodeView.SetToolTip(this.labelPublicationDate, resources.GetString("labelPublicationDate.ToolTip"));
             // 
             // labelEpisodeDescription
             // 
             resources.ApplyResources(this.labelEpisodeDescription, "labelEpisodeDescription");
             this.labelEpisodeDescription.Name = "labelEpisodeDescription";
-            this.toolTipEpisodeView.SetToolTip(this.labelEpisodeDescription, resources.GetString("labelEpisodeDescription.ToolTip"));
             // 
             // EpisodeView
             // 
@@ -155,7 +150,6 @@ namespace PluralsightWinFormsDemoApp.Views
             this.Controls.Add(this.bottomPanel);
             this.Controls.Add(this.topFlowLayoutPanel);
             this.Name = "EpisodeView";
-            this.toolTipEpisodeView.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.bottomPanel.ResumeLayout(false);
             this.bottomPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).EndInit();
@@ -182,5 +176,6 @@ namespace PluralsightWinFormsDemoApp.Views
         internal Label labelPublicationDate;
         internal Label labelEpisodeDescription;
         private ToolTip toolTipEpisodeView;
+        internal Button buttonStop;
     }
 }
