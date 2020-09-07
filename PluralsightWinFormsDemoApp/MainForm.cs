@@ -2,12 +2,9 @@
 using PluralsightWinFormsDemoApp.Properties;
 using PluralsightWinFormsDemoApp.Views;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -127,7 +124,8 @@ namespace PluralsightWinFormsDemoApp
             if (!(_subscriptionView.treeViewPodcasts.SelectedNode.Tag is Podcast selectedPodcast)) return;
             splitContainer1.Panel2.Controls.Clear();
             splitContainer1.Panel2.Controls.Add(_podcastView);
-            _podcastView.SetPodcast(selectedPodcast);
+            _podcastView.SetPodcastTitle(selectedPodcast.Title);
+            _podcastView.SetEpisodeCount($"{selectedPodcast.Episodes.Count} episodes");
         }
 
         private void SaveEpisode()
@@ -142,7 +140,7 @@ namespace PluralsightWinFormsDemoApp
 
         private void OnButtonPlayClick(object sender, EventArgs e)
         {
-            if(_currentEpisode == null) return;
+            if (_currentEpisode == null) return;
             _podcastPlayer.LoadEpisode(_currentEpisode);
             _podcastPlayer.Play();
         }

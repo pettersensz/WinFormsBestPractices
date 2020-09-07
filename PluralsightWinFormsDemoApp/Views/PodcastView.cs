@@ -4,17 +4,27 @@ using PluralsightWinFormsDemoApp.Objects;
 
 namespace PluralsightWinFormsDemoApp.Views
 {
-    public partial class PodcastView : UserControl
+    public partial class PodcastView : UserControl, IPodcastView
     {
         public PodcastView()
         {
             InitializeComponent();
         }
 
-        internal void SetPodcast(Podcast selectedPodcast)
+        public void SetPodcastTitle(string podcastTitle)
         {
-            podcastTitle.Text = selectedPodcast.Title;
-            labelEpisodeCount.Text = String.Format("{0} episodes",selectedPodcast.Episodes.Count);
+            labelPodcastTitle.Text = podcastTitle;
         }
+
+        public void SetEpisodeCount(string episodeCount)
+        {
+            labelEpisodeCount.Text = episodeCount;
+        }
+    }
+
+    public interface IPodcastView
+    {
+        void SetPodcastTitle(string podcastTitle);
+        void SetEpisodeCount(string episodeCount);
     }
 }

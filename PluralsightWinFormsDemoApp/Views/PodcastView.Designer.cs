@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.podcastTitle = new System.Windows.Forms.Label();
+            this.labelPodcastTitle = new System.Windows.Forms.Label();
             this.labelEpisodeCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // podcastTitle
+            // labelPodcastTitle
             // 
-            this.podcastTitle.AutoSize = true;
-            this.podcastTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.podcastTitle.ForeColor = System.Drawing.Color.DarkGray;
-            this.podcastTitle.Location = new System.Drawing.Point(3, 9);
-            this.podcastTitle.Name = "podcastTitle";
-            this.podcastTitle.Size = new System.Drawing.Size(165, 25);
-            this.podcastTitle.TabIndex = 0;
-            this.podcastTitle.Text = "{{Podcast Title}}";
+            this.labelPodcastTitle.AutoSize = true;
+            this.labelPodcastTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPodcastTitle.ForeColor = System.Drawing.Color.DarkGray;
+            this.labelPodcastTitle.Location = new System.Drawing.Point(3, 9);
+            this.labelPodcastTitle.Name = "labelPodcastTitle";
+            this.labelPodcastTitle.Size = new System.Drawing.Size(165, 25);
+            this.labelPodcastTitle.TabIndex = 0;
+            this.labelPodcastTitle.Text = "{{Podcast Title}}";
             // 
             // labelEpisodeCount
             // 
@@ -57,7 +57,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.labelEpisodeCount);
-            this.Controls.Add(this.podcastTitle);
+            this.Controls.Add(this.labelPodcastTitle);
             this.Name = "PodcastView";
             this.Size = new System.Drawing.Size(372, 183);
             this.ResumeLayout(false);
@@ -67,7 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label podcastTitle;
+        private System.Windows.Forms.Label labelPodcastTitle;
         private System.Windows.Forms.Label labelEpisodeCount;
     }
 }
