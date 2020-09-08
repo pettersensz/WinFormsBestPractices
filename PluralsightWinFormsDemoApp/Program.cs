@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using PluralsightWinFormsDemoApp.Objects;
 using PluralsightWinFormsDemoApp.Presenters;
 
 namespace PluralsightWinFormsDemoApp
@@ -19,7 +20,8 @@ namespace PluralsightWinFormsDemoApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var mainForm = new MainForm();
-            var presenter = new MainFormPresenter(mainForm);
+            var subscriptionManager = new SubscriptionManager("subscriptions.xml");
+            var presenter = new MainFormPresenter(mainForm, subscriptionManager);
             Application.Run(mainForm);
         }
 

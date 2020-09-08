@@ -5,7 +5,13 @@ using System.Xml.Serialization;
 
 namespace PluralsightWinFormsDemoApp.Objects
 {
-    class SubscriptionManager
+    public interface ISubscriptionManager
+    {
+        List<Podcast> LoadPodcasts();
+        void SavePodcasts(List<Podcast> podcasts);
+    }
+    
+    internal class SubscriptionManager : ISubscriptionManager
     {
         private readonly string _file;
 
@@ -14,7 +20,7 @@ namespace PluralsightWinFormsDemoApp.Objects
             _file = file;
         }
 
-        internal List<Podcast> LoadPodcasts()
+        public List<Podcast> LoadPodcasts()
         {
             List<Podcast> podcasts;
             if (File.Exists(_file))
@@ -41,7 +47,7 @@ namespace PluralsightWinFormsDemoApp.Objects
             return podcasts;
         }
 
-        internal void SavePodcasts(List<Podcast> podcasts)
+        public void SavePodcasts(List<Podcast> podcasts)
         {
             var serializer = new XmlSerializer(typeof(List<Podcast>));
             using (var s = File.Create(_file))

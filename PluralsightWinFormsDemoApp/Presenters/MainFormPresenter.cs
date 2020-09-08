@@ -16,7 +16,7 @@ namespace PluralsightWinFormsDemoApp.Presenters
     {
         private readonly IMainFormView _mainFormView;
         private Episode _currentEpisode;
-        private readonly SubscriptionManager _subscriptionManager;
+        private readonly ISubscriptionManager _subscriptionManager;
         private readonly PodcastLoader _podcastLoader;
         private readonly PodcastPlayer _podcastPlayer;
         private readonly List<Podcast> _podcasts;
@@ -25,7 +25,8 @@ namespace PluralsightWinFormsDemoApp.Presenters
         private readonly IEpisodeView _episodeView;
         private readonly IPodcastView _podcastView;
 
-        public MainFormPresenter(IMainFormView mainFormView)
+        public MainFormPresenter(IMainFormView mainFormView,
+        ISubscriptionManager subscriptionManager)
         {
             _subscriptionView = mainFormView.SubscriptionView;
             _episodeView = mainFormView.EpisodeView;
@@ -43,7 +44,7 @@ namespace PluralsightWinFormsDemoApp.Presenters
             _episodeView.PlayClicked += OnButtonPlayClick;
             _episodeView.StopClicked += OnButtonStopClick;
 
-            _subscriptionManager = new SubscriptionManager("subscriptions.xml");
+            _subscriptionManager = subscriptionManager;
             _podcastLoader = new PodcastLoader();
             _podcastPlayer = new PodcastPlayer();
             _podcasts = _subscriptionManager.LoadPodcasts();
