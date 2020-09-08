@@ -108,6 +108,13 @@ namespace PluralsightWinFormsDemoApp.Presenters
                 _episodeView.Tags = string.Join(",", _currentEpisode.Tags ?? new string[0]);
                 _episodeView.Notes = _currentEpisode.Notes ?? "";
                 _podcastPlayer.LoadEpisode(selectedEpisode);
+                if (_currentEpisode.Peaks == null || _currentEpisode.Peaks.Length == 0)
+                {
+                    _episodeView.SetPeaks(null);
+                    _currentEpisode.Peaks = await _podcastPlayer.LoadPeaksAsync();
+                }
+
+                _episodeView.SetPeaks(_currentEpisode.Peaks);
             }
 
             if (!(_subscriptionView.SelectedNode.Tag is Podcast selectedPodcast)) return;
