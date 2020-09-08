@@ -33,6 +33,7 @@ namespace PluralsightWinFormsDemoApp.Views
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EpisodeView));
             this.bottomPanel = new System.Windows.Forms.Panel();
+            this.waveFormViewer1 = new PluralsightWinFormsDemoApp.Views.WaveFormViewer();
             this.buttonStop = new System.Windows.Forms.Button();
             this.checkBoxIsFavorite = new System.Windows.Forms.CheckBox();
             this.numericUpDownRating = new System.Windows.Forms.NumericUpDown();
@@ -47,7 +48,6 @@ namespace PluralsightWinFormsDemoApp.Views
             this.labelPublicationDate = new System.Windows.Forms.Label();
             this.labelEpisodeDescription = new System.Windows.Forms.Label();
             this.toolTipEpisodeView = new System.Windows.Forms.ToolTip(this.components);
-            this.waveFormViewer1 = new PluralsightWinFormsDemoApp.Views.WaveFormViewer();
             this.bottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).BeginInit();
             this.topFlowLayoutPanel.SuspendLayout();
@@ -67,6 +67,13 @@ namespace PluralsightWinFormsDemoApp.Views
             this.bottomPanel.Controls.Add(this.buttonPlay);
             resources.ApplyResources(this.bottomPanel, "bottomPanel");
             this.bottomPanel.Name = "bottomPanel";
+            // 
+            // waveFormViewer1
+            // 
+            resources.ApplyResources(this.waveFormViewer1, "waveFormViewer1");
+            this.waveFormViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.waveFormViewer1.Name = "waveFormViewer1";
+            this.waveFormViewer1.PositionInSeconds = 0;
             // 
             // buttonStop
             // 
@@ -144,12 +151,6 @@ namespace PluralsightWinFormsDemoApp.Views
             // 
             resources.ApplyResources(this.labelEpisodeDescription, "labelEpisodeDescription");
             this.labelEpisodeDescription.Name = "labelEpisodeDescription";
-            // 
-            // waveFormViewer1
-            // 
-            resources.ApplyResources(this.waveFormViewer1, "waveFormViewer1");
-            this.waveFormViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.waveFormViewer1.Name = "waveFormViewer1";
             // 
             // EpisodeView
             // 
