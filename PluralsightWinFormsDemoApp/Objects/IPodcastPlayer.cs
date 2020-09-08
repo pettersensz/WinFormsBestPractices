@@ -1,4 +1,6 @@
-﻿namespace PluralsightWinFormsDemoApp.Objects
+﻿using System.Threading.Tasks;
+
+namespace PluralsightWinFormsDemoApp.Objects
 {
     public interface IPodcastPlayer
     {
@@ -8,5 +10,7 @@
         void Play();
         void Stop();
         void UnloadEpisode();
+
+        Task<float[]> LoadPeaksAsync();
     }
 }

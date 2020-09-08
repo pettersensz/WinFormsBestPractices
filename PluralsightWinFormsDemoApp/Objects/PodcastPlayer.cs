@@ -1,6 +1,9 @@
 ﻿using NAudio.Wave;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PluralsightWinFormsDemoApp.Objects
@@ -14,6 +17,31 @@ namespace PluralsightWinFormsDemoApp.Objects
         {
             if (_player != null) _player.Dispose();
             _player = null;
+        }
+
+        public Task<float[]> LoadPeaksAsync()
+        {
+            return Task.Run(() =>
+            {
+                var peaks = new List<float>();
+                using (var reader = new MediaFoundationReader(_currentEpisode.AudioFile))
+                {
+                    var sampleProvider = reader.ToSampleProvider();
+                    var sampleBuffer = new float[reader.WaveFormat.SampleRate * reader.WaveFormat.Channels];
+                    int read;
+                    do
+                    {
+                        read = sampleProvider.Read(sampleBuffer, 0, sampleBuffer.Length);
+                        if (read > 0)
+                        {
+                            var max = sampleBuffer.Take(read).Select(Math.Abs).Max();
+                            peaks.Add(max);
+                        }
+                    } while (read > 0);
+
+                    return peaks.ToArray();
+                }
+            });
         }
 
         public void Dispose()

@@ -71,6 +71,11 @@ namespace PluralsightWinFormsDemoApp.Views
             add => buttonStop.Click += value;
             remove => buttonStop.Click -= value;
         }
+
+        public void SetPeaks(float[] peaks)
+        {
+            waveFormViewer1.SetPeaks(peaks);
+        }
     }
 
     public interface IEpisodeView
@@ -85,5 +90,7 @@ namespace PluralsightWinFormsDemoApp.Views
 
         event EventHandler PlayClicked;
         event EventHandler StopClicked;
+
+        void SetPeaks(float[] peaks);
     }
 }

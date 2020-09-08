@@ -88,7 +88,7 @@ namespace PluralsightWinFormsDemoApp.Presenters
             }
         }
 
-        private void OnSelectedEpisodeChanged(object sender, EventArgs e)
+        private async void OnSelectedEpisodeChanged(object sender, EventArgs e)
         {
             _podcastPlayer.UnloadEpisode();
             if (_subscriptionView.SelectedNode == null) return;
