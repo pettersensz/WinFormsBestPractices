@@ -24,11 +24,18 @@ namespace PluralsightWinFormsDemoApp.Presenters
         private readonly ISubscriptionView _subscriptionView;
         private readonly IEpisodeView _episodeView;
         private readonly IPodcastView _podcastView;
+        private readonly IMessageBoxDisplayService _messageBoxDisplayService;
+        private readonly ISettingsService _settingsService;
+        private readonly INewSubscriptionService _newSubscriptionService;
 
         public MainFormPresenter(IMainFormView mainFormView,
         ISubscriptionManager subscriptionManager,
         IPodcastLoader podcastLoader,
-        IPodcastPlayer podcastPlayer)
+        IPodcastPlayer podcastPlayer,
+        IMessageBoxDisplayService messageBoxDisplayService,
+        ISettingsService settingsService,
+        ISystemInformationService systemInformationService,
+        INewSubscriptionService newSubscriptionService)
         {
             _subscriptionView = mainFormView.SubscriptionView;
             _episodeView = mainFormView.EpisodeView;
@@ -38,7 +45,7 @@ namespace PluralsightWinFormsDemoApp.Presenters
             mainFormView.Load += OnMainFormLoad;
             mainFormView.FormClosed += OnMainFormClosed;
             mainFormView.KeyUp += MainFormViewOnKeyUp;
-            
+
             _subscriptionView.AddPodcastClicked += OnButtonAddClick;
             _subscriptionView.RemovePodcastClicked += OnButtonRemoveClick;
             _subscriptionView.SelectionChanged += OnSelectedEpisodeChanged;
@@ -51,7 +58,11 @@ namespace PluralsightWinFormsDemoApp.Presenters
             _podcastPlayer = podcastPlayer;
             _podcasts = _subscriptionManager.LoadPodcasts();
 
-            if (!SystemInformation.HighContrast) mainFormView.BackColor = Color.White;
+            _settingsService = settingsService;
+            _newSubscriptionService = newSubscriptionService;
+            _messageBoxDisplayService = messageBoxDisplayService;
+
+            if (systemInformationService.IsHighContrastColorScheme) mainFormView.BackColor = Color.White;
         }
 
         private void OnButtonPlayClick(object sender, EventArgs e)
@@ -108,18 +119,16 @@ namespace PluralsightWinFormsDemoApp.Presenters
         {
             foreach (var pod in _podcasts)
             {
-                await Task.Run(() => _podcastLoader.UpdatePodcast(pod));
+                await _podcastLoader.UpdatePodcast(pod);
                 AddPodcastToTreeView(pod);
             }
 
             SelectFirstEpisode();
 
-            if (Settings.Default.FirstRun)
-            {
-                MessageBox.Show("Welcome! Get started by clicking Add to subscribe to a new podcast.");
-                Settings.Default.FirstRun = false;
-                Settings.Default.Save();
-            }
+            if (!_settingsService.FirstRun) return;
+            _messageBoxDisplayService.Show("Welcome! Get started by clicking Add to subscribe to a new podcast.");
+            _settingsService.FirstRun = false;
+            _settingsService.Save();
         }
 
         private void OnMainFormClosed(object sender, FormClosedEventArgs e)
@@ -141,21 +150,22 @@ namespace PluralsightWinFormsDemoApp.Presenters
 
         private async void OnButtonAddClick(object sender, EventArgs e)
         {
-            var form = new NewPodcastForm();
-            if (form.ShowDialog() != DialogResult.OK) return;
-            var pod = new Podcast() { SubscriptionUrl = form.PodcastUrl };
+            var newPodcastUrl = _newSubscriptionService.GetSubscriptionUrl();
+            if (newPodcastUrl == null) return;
+            var pod = new Podcast() {SubscriptionUrl = newPodcastUrl};
             try
             {
                 await _podcastLoader.UpdatePodcast(pod);
+                _podcasts.Add(pod);
                 AddPodcastToTreeView(pod);
             }
             catch (WebException)
             {
-                MessageBox.Show("Sorry, that podcast could not be found. Please check the URL.");
+                _messageBoxDisplayService.Show("Sorry, that podcast could not be found. Please check the URL.");
             }
             catch (XmlException)
             {
-                MessageBox.Show("Sorry, that URL is not a podcast feed.");
+                _messageBoxDisplayService.Show("Sorry, that URL is not a podcast feed.");
             }
         }
 

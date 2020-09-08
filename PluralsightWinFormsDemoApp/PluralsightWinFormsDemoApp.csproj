@@ -49,9 +49,13 @@
   <ItemGroup>
     <Compile Include="Objects\Episode.cs" />
     <Compile Include="Objects\IPodcastPlayer.cs" />
+    <Compile Include="Objects\MessageBoxDisplayService.cs" />
+    <Compile Include="Objects\NewSubscriptionService.cs" />
     <Compile Include="Objects\PodcastLoader.cs" />
     <Compile Include="Objects\PodcastPlayer.cs" />
+    <Compile Include="Objects\SettingsService.cs" />
     <Compile Include="Objects\SubscriptionManager.cs" />
+    <Compile Include="Objects\SystemInformationService.cs" />
     <Compile Include="Presenters\MainFormPresenter.cs" />
     <Compile Include="Views\EpisodeView.cs">
       <SubType>UserControl</SubType>

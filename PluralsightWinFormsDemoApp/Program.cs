@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using PluralsightWinFormsDemoApp.Objects;
@@ -23,7 +24,18 @@ namespace PluralsightWinFormsDemoApp
             var subscriptionManager = new SubscriptionManager("subscriptions.xml");
             var podcastLoader = new PodcastLoader();
             var podcastPlayer = new PodcastPlayer();
-            var presenter = new MainFormPresenter(mainForm, subscriptionManager, podcastLoader, podcastPlayer);
+            var displayService = new MessageBoxDisplayService();
+            var settingsService = new SettingsService();
+            var systemInformationService = new SystemInformationService();
+            var subscriptionService = new NewSubscriptionService();
+            var presenter = new MainFormPresenter(mainForm, 
+                subscriptionManager, 
+                podcastLoader, 
+                podcastPlayer,
+                displayService,
+                settingsService,
+                systemInformationService,
+                subscriptionService);
             Application.Run(mainForm);
         }
 
