@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows.Forms;
+using PluralsightWinFormsDemoApp.Presenters;
 
 namespace PluralsightWinFormsDemoApp
 {
@@ -17,7 +18,9 @@ namespace PluralsightWinFormsDemoApp
             AppDomain.CurrentDomain.UnhandledException += CurrentDomainOnUnhandledException;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            var mainForm = new MainForm();
+            var presenter = new MainFormPresenter(mainForm);
+            Application.Run(mainForm);
         }
 
         private static void CurrentDomainOnUnhandledException(object sender, UnhandledExceptionEventArgs e)

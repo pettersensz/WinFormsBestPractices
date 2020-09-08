@@ -1,4 +1,5 @@
-﻿using System.Runtime.Remoting.Messaging;
+﻿using System;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using PluralsightWinFormsDemoApp.Resources;
 
@@ -36,6 +37,12 @@ namespace PluralsightWinFormsDemoApp.Views
             set => labelPublicationDate.Text = value;
         }
 
+        public bool EpisodeIsFavorite
+        {
+            get => checkBoxIsFavorite.Checked; 
+            set => checkBoxIsFavorite.Checked = value;
+        }
+
         public int Rating
         {
             get => (int) numericUpDownRating.Value;
@@ -53,6 +60,17 @@ namespace PluralsightWinFormsDemoApp.Views
             get => textBoxTags.Text;
             set => textBoxTags.Text = value;
         }
+
+        public event EventHandler PlayClicked
+        {
+            add => buttonPlay.Click += value;
+            remove => buttonPlay.Click -= value;
+        }
+        public event EventHandler StopClicked
+        {
+            add => buttonStop.Click += value;
+            remove => buttonStop.Click -= value;
+        }
     }
 
     public interface IEpisodeView
@@ -60,8 +78,12 @@ namespace PluralsightWinFormsDemoApp.Views
         string Description { set; }
         string Title { set; }
         string PublicationDate { set; }
+        bool EpisodeIsFavorite { get; set; }
         int Rating { get; set; }
         string Notes { get; set; }
         string Tags { get; set; }
+
+        event EventHandler PlayClicked;
+        event EventHandler StopClicked;
     }
 }

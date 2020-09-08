@@ -30,12 +30,24 @@ namespace PluralsightWinFormsDemoApp
         }
 
         public event EventHandler SelectionChanged;
+        public event EventHandler AddPodcastClicked
+        {
+            add => buttonAdd.Click += value;
+            remove => buttonAdd.Click -= value;
+        }
+        public event EventHandler RemovePodcastClicked
+        {
+            add => buttonRemove.Click += value;
+            remove => buttonRemove.Click -= value;
+        }
 
         protected virtual void OnSelectionChanged()
         {
             var handler = SelectionChanged;
             handler?.Invoke(this,EventArgs.Empty);
         }
+
+
     }
 
     public interface ISubscriptionView
@@ -45,5 +57,8 @@ namespace PluralsightWinFormsDemoApp
         void RemoveNode(string key);
         void SelectNode(string key);
         event EventHandler SelectionChanged;
+
+        event EventHandler AddPodcastClicked;
+        event EventHandler RemovePodcastClicked;
     }
 }

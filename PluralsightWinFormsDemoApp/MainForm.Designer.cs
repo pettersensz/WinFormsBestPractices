@@ -54,11 +54,10 @@
             this.MinimumSize = new System.Drawing.Size(400, 400);
             this.Name = "MainForm";
             this.Text = "My Podcasts";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OnMainFormClosed);
-            this.Load += new System.EventHandler(this.OnMainFormLoad);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
