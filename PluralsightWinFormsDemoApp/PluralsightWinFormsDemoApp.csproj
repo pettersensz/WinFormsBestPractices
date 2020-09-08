@@ -100,6 +100,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TextResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Views\WaveFormViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\WaveFormViewer.Designer.cs">
+      <DependentUpon>WaveFormViewer.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Views\EpisodeView.en-GB.resx">
       <DependentUpon>EpisodeView.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +141,9 @@
     <EmbeddedResource Include="Resources\TextResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>TextResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\WaveFormViewer.resx">
+      <DependentUpon>WaveFormViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

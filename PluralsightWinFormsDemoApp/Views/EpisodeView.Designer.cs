@@ -47,6 +47,7 @@ namespace PluralsightWinFormsDemoApp.Views
             this.labelPublicationDate = new System.Windows.Forms.Label();
             this.labelEpisodeDescription = new System.Windows.Forms.Label();
             this.toolTipEpisodeView = new System.Windows.Forms.ToolTip(this.components);
+            this.waveFormViewer1 = new PluralsightWinFormsDemoApp.Views.WaveFormViewer();
             this.bottomPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRating)).BeginInit();
             this.topFlowLayoutPanel.SuspendLayout();
@@ -54,6 +55,7 @@ namespace PluralsightWinFormsDemoApp.Views
             // 
             // bottomPanel
             // 
+            this.bottomPanel.Controls.Add(this.waveFormViewer1);
             this.bottomPanel.Controls.Add(this.buttonStop);
             this.bottomPanel.Controls.Add(this.checkBoxIsFavorite);
             this.bottomPanel.Controls.Add(this.numericUpDownRating);
@@ -143,6 +145,12 @@ namespace PluralsightWinFormsDemoApp.Views
             resources.ApplyResources(this.labelEpisodeDescription, "labelEpisodeDescription");
             this.labelEpisodeDescription.Name = "labelEpisodeDescription";
             // 
+            // waveFormViewer1
+            // 
+            resources.ApplyResources(this.waveFormViewer1, "waveFormViewer1");
+            this.waveFormViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.waveFormViewer1.Name = "waveFormViewer1";
+            // 
             // EpisodeView
             // 
             resources.ApplyResources(this, "$this");
@@ -177,5 +185,6 @@ namespace PluralsightWinFormsDemoApp.Views
         internal Label labelEpisodeDescription;
         private ToolTip toolTipEpisodeView;
         internal Button buttonStop;
+        private WaveFormViewer waveFormViewer1;
     }
 }
