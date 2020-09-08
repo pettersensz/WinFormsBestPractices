@@ -50,6 +50,8 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\IButtonCommand.cs" />
     <Compile Include="Commands\PlayCommand.cs" />
+    <Compile Include="EventAggregator\EpisodeSelectedMessage.cs" />
+    <Compile Include="EventAggregator\EventAggregator.cs" />
     <Compile Include="Objects\Episode.cs" />
     <Compile Include="Objects\IPodcastPlayer.cs" />
     <Compile Include="Objects\MessageBoxDisplayService.cs" />

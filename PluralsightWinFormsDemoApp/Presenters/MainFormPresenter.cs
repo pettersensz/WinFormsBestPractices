@@ -1,5 +1,5 @@
 ﻿using PluralsightWinFormsDemoApp.Objects;
-using PluralsightWinFormsDemoApp.Properties;
+using PluralsightWinFormsDemoApp.EventAggregator;
 using PluralsightWinFormsDemoApp.Views;
 using System;
 using System.Collections.Generic;
@@ -95,6 +95,7 @@ namespace PluralsightWinFormsDemoApp.Presenters
 
             if (_subscriptionView.SelectedNode.Tag is Episode selectedEpisode)
             {
+                EventAggregator.EventAggregator.Instance.Publish(new EpisodeSelectedMessage(selectedEpisode));
                 _mainFormView.ShowEpisodeView();
                 SaveEpisode();
                 _currentEpisode = selectedEpisode;
@@ -110,6 +111,7 @@ namespace PluralsightWinFormsDemoApp.Presenters
             }
 
             if (!(_subscriptionView.SelectedNode.Tag is Podcast selectedPodcast)) return;
+            EventAggregator.EventAggregator.Instance.Publish(new PodcastSelectedMessage(selectedPodcast));
             _mainFormView.ShowPodcastView();
             _podcastView.SetPodcastTitle(selectedPodcast.Title);
             _podcastView.SetEpisodeCount($"{selectedPodcast.Episodes.Count} episodes");
