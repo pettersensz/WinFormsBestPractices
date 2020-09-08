@@ -28,6 +28,8 @@ namespace PluralsightWinFormsDemoApp.Presenters
         private readonly ISettingsService _settingsService;
         private readonly INewSubscriptionService _newSubscriptionService;
 
+        private readonly Timer _timer;
+
         public MainFormPresenter(IMainFormView mainFormView,
         ISubscriptionManager subscriptionManager,
         IPodcastLoader podcastLoader,
@@ -40,6 +42,11 @@ namespace PluralsightWinFormsDemoApp.Presenters
             _subscriptionView = mainFormView.SubscriptionView;
             _episodeView = mainFormView.EpisodeView;
             _podcastView = mainFormView.PodcastView;
+
+            _timer = new Timer();
+            _timer.Interval = 100;
+            _timer.Tick += TimerOnTick;
+            _timer.Start();
 
             _mainFormView = mainFormView;
             mainFormView.Load += OnMainFormLoad;
@@ -63,6 +70,13 @@ namespace PluralsightWinFormsDemoApp.Presenters
             _messageBoxDisplayService = messageBoxDisplayService;
 
             if (systemInformationService.IsHighContrastColorScheme) mainFormView.BackColor = Color.White;
+
+            _episodeView.PositionChanged += (s, a) => _podcastPlayer.PositionInSeconds = _episodeView.PositionInSeconds;
+        }
+
+        private void TimerOnTick(object sender, EventArgs eventArgs)
+        {
+            _episodeView.PositionInSeconds = _podcastPlayer.PositionInSeconds;
         }
 
         private void OnButtonPlayClick(object sender, EventArgs e)

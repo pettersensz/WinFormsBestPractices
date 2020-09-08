@@ -16,6 +16,25 @@ namespace PluralsightWinFormsDemoApp.Views
             InitializeComponent();
             DoubleBuffered = true;
             hScrollBar1.Scroll += hScrollBar1_Scroll;
+            MouseClick += OnMouseClick;
+        }
+
+        private void OnMouseClick(object sender, MouseEventArgs mouseEventArgs)
+        {
+            if (mouseEventArgs.Button == MouseButtons.Left)
+            {
+                var desiredPosition = mouseEventArgs.X + hScrollBar1.Value;
+                PositionInSeconds = desiredPosition;
+                OnPositionChanged();
+            }
+        }
+
+        public event EventHandler PositionChanged;
+
+        protected virtual void OnPositionChanged()
+        {
+            EventHandler handler = PositionChanged;
+            handler?.Invoke(this,EventArgs.Empty);
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -86,7 +105,7 @@ namespace PluralsightWinFormsDemoApp.Views
             var positionX = PositionInSeconds - hScrollBar1.Value;
             e.Graphics.DrawLine(PositionPen,positionX,0,positionX,Height);
 
-            var timeString = TimeSpan.FromMilliseconds(PositionInSeconds).ToString(@"hh\:mm\:ss");
+            var timeString = TimeSpan.FromSeconds(PositionInSeconds).ToString(@"hh\:mm\:ss");
             var timeStringRect = e.Graphics.MeasureString(timeString, Font);
             var timeRect = new Rectangle(positionX,1,(int)timeStringRect.Width+6,15);
             

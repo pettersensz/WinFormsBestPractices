@@ -12,5 +12,6 @@ namespace PluralsightWinFormsDemoApp.Objects
         void UnloadEpisode();
 
         Task<float[]> LoadPeaksAsync();
+        int PositionInSeconds { get; set; }
     }
 }

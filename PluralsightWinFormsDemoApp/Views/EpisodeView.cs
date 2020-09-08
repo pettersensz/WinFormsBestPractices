@@ -1,7 +1,6 @@
-﻿using System;
-using System.Runtime.Remoting.Messaging;
+﻿using PluralsightWinFormsDemoApp.Resources;
+using System;
 using System.Windows.Forms;
-using PluralsightWinFormsDemoApp.Resources;
 
 namespace PluralsightWinFormsDemoApp.Views
 {
@@ -21,40 +20,46 @@ namespace PluralsightWinFormsDemoApp.Views
 
         public string Description
         {
-            get => labelEpisodeDescription.Text; 
+            get => labelEpisodeDescription.Text;
             set => labelEpisodeDescription.Text = value;
         }
 
         public string Title
         {
-            get => labelEpisodeTitle.Text; 
+            get => labelEpisodeTitle.Text;
             set => labelEpisodeTitle.Text = value;
         }
 
         public string PublicationDate
         {
-            get => labelPublicationDate.Text; 
+            get => labelPublicationDate.Text;
             set => labelPublicationDate.Text = value;
         }
 
         public bool EpisodeIsFavorite
         {
-            get => checkBoxIsFavorite.Checked; 
+            get => checkBoxIsFavorite.Checked;
             set => checkBoxIsFavorite.Checked = value;
         }
 
         public int Rating
         {
-            get => (int) numericUpDownRating.Value;
+            get => (int)numericUpDownRating.Value;
             set => numericUpDownRating.Value = value;
         }
-        
+
+        public int PositionInSeconds
+        {
+            get => waveFormViewer1.PositionInSeconds;
+            set => waveFormViewer1.PositionInSeconds = value;
+        }
+
         public string Notes
         {
             get => textBoxNotes.Text;
             set => textBoxNotes.Text = value;
         }
-        
+
         public string Tags
         {
             get => textBoxTags.Text;
@@ -76,6 +81,12 @@ namespace PluralsightWinFormsDemoApp.Views
         {
             waveFormViewer1.SetPeaks(peaks);
         }
+
+        public event EventHandler PositionChanged
+        {
+            add => waveFormViewer1.PositionChanged += value;
+            remove => waveFormViewer1.PositionChanged -= value;
+        }
     }
 
     public interface IEpisodeView
@@ -87,6 +98,10 @@ namespace PluralsightWinFormsDemoApp.Views
         int Rating { get; set; }
         string Notes { get; set; }
         string Tags { get; set; }
+
+        int PositionInSeconds { get; set; }
+
+        event EventHandler PositionChanged;
 
         event EventHandler PlayClicked;
         event EventHandler StopClicked;

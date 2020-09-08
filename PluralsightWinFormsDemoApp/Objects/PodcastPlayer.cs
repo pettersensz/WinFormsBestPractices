@@ -12,11 +12,13 @@ namespace PluralsightWinFormsDemoApp.Objects
     {
         private WaveOutEvent _player;
         private Episode _currentEpisode;
+        private MediaFoundationReader _currentReader;
 
         public void UnloadEpisode()
         {
             if (_player != null) _player.Dispose();
             _player = null;
+            _currentReader = null;
         }
 
         public Task<float[]> LoadPeaksAsync()
@@ -44,6 +46,24 @@ namespace PluralsightWinFormsDemoApp.Objects
             });
         }
 
+        private int _positionInSeconds;
+        public int PositionInSeconds
+        {
+            get
+            {
+                if (_currentReader != null)
+                {
+                    _positionInSeconds = (int) _currentReader.CurrentTime.TotalSeconds;
+                }
+                return _positionInSeconds;
+            }
+            set
+            {
+                _positionInSeconds = value;
+                if(_currentReader != null) _currentReader.CurrentTime = TimeSpan.FromSeconds(value);
+            }
+        }
+
         public void Dispose()
         {
             if (_player != null)
@@ -66,7 +86,8 @@ namespace PluralsightWinFormsDemoApp.Objects
                 try
                 {
                     _player = new WaveOutEvent();
-                    _player.Init(new MediaFoundationReader(_currentEpisode.AudioFile));
+                    _currentReader = new MediaFoundationReader(_currentEpisode.AudioFile);
+                    _player.Init(_currentReader);
                 }
                 catch (Exception ex)
                 {
