@@ -17,8 +17,8 @@ namespace PluralsightWinFormsDemoApp.Presenters
         private readonly IMainFormView _mainFormView;
         private Episode _currentEpisode;
         private readonly ISubscriptionManager _subscriptionManager;
-        private readonly PodcastLoader _podcastLoader;
-        private readonly PodcastPlayer _podcastPlayer;
+        private readonly IPodcastLoader _podcastLoader;
+        private readonly IPodcastPlayer _podcastPlayer;
         private readonly List<Podcast> _podcasts;
 
         private readonly ISubscriptionView _subscriptionView;
@@ -26,7 +26,9 @@ namespace PluralsightWinFormsDemoApp.Presenters
         private readonly IPodcastView _podcastView;
 
         public MainFormPresenter(IMainFormView mainFormView,
-        ISubscriptionManager subscriptionManager)
+        ISubscriptionManager subscriptionManager,
+        IPodcastLoader podcastLoader,
+        IPodcastPlayer podcastPlayer)
         {
             _subscriptionView = mainFormView.SubscriptionView;
             _episodeView = mainFormView.EpisodeView;
@@ -45,8 +47,8 @@ namespace PluralsightWinFormsDemoApp.Presenters
             _episodeView.StopClicked += OnButtonStopClick;
 
             _subscriptionManager = subscriptionManager;
-            _podcastLoader = new PodcastLoader();
-            _podcastPlayer = new PodcastPlayer();
+            _podcastLoader = podcastLoader;
+            _podcastPlayer = podcastPlayer;
             _podcasts = _subscriptionManager.LoadPodcasts();
 
             if (!SystemInformation.HighContrast) mainFormView.BackColor = Color.White;

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using NAudio.Wave;
+using System;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using NAudio.Wave;
 
 namespace PluralsightWinFormsDemoApp.Objects
 {
-    internal class PodcastPlayer : IDisposable
+    public class PodcastPlayer : IDisposable, IPodcastPlayer
     {
         private WaveOutEvent _player;
         private Episode _currentEpisode;

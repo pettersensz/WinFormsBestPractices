@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Objects\Episode.cs" />
+    <Compile Include="Objects\IPodcastPlayer.cs" />
     <Compile Include="Objects\PodcastLoader.cs" />
     <Compile Include="Objects\PodcastPlayer.cs" />
     <Compile Include="Objects\SubscriptionManager.cs" />

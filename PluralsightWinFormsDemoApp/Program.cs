@@ -21,7 +21,9 @@ namespace PluralsightWinFormsDemoApp
             Application.SetCompatibleTextRenderingDefault(false);
             var mainForm = new MainForm();
             var subscriptionManager = new SubscriptionManager("subscriptions.xml");
-            var presenter = new MainFormPresenter(mainForm, subscriptionManager);
+            var podcastLoader = new PodcastLoader();
+            var podcastPlayer = new PodcastPlayer();
+            var presenter = new MainFormPresenter(mainForm, subscriptionManager, podcastLoader, podcastPlayer);
             Application.Run(mainForm);
         }
 

@@ -7,9 +7,14 @@ using System.Xml;
 
 namespace PluralsightWinFormsDemoApp.Objects
 {
-    internal class PodcastLoader
+    public interface IPodcastLoader
     {
-        internal async Task UpdatePodcast(Podcast podcast)
+        Task UpdatePodcast(Podcast podcast);
+    }
+    
+    public class PodcastLoader : IPodcastLoader
+    {
+        public async Task UpdatePodcast(Podcast podcast)
         {
             var doc = new XmlDocument();
             await Task.Run(() => doc.Load(podcast.SubscriptionUrl));
